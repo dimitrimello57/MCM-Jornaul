@@ -129,18 +129,53 @@
             padding-bottom: 0.125rem;
         }
 
-        .term-btn.active-term {
-            border-color: #B89758;
-            border-width: 2px;
-            color: #B89758;
-            background-color: #FAF7EE;
-        }
-
         [data-cat-item] {
             display: block;
         }
         [data-cat-item].hidden-cat {
             display: none;
+        }
+
+        /* MCM Consórcio simulator */
+        .mcm-step {
+            flex: 1;
+            height: 4px;
+            border-radius: 4px;
+            background-color: #E8E6DB;
+        }
+        .mcm-step.on {
+            background-color: #B89758;
+        }
+        .mcm-opt {
+            display: block;
+            width: 100%;
+            text-align: left;
+            background-color: #FAF9F6;
+            border: 1px solid #E8E6DB;
+            border-radius: 12px;
+            padding: 14px 16px;
+            cursor: pointer;
+            color: #111827;
+            font: inherit;
+            transition: border-color 0.2s ease, background-color 0.2s ease;
+        }
+        .mcm-opt:hover {
+            border-color: #B89758;
+        }
+        .mcm-opt.sel {
+            border-color: #B89758;
+            background-color: #FAF7EE;
+        }
+        .mcm-opt small {
+            display: block;
+            color: #6B7280;
+            font-weight: 400;
+            margin-top: 2px;
+        }
+        .mcm-chart svg text {
+            fill: #9CA3AF;
+            font-size: 11px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
         }
     </style>
 </head>
@@ -383,92 +418,160 @@
 
         </section>
 
-        <!-- SECTION 2: INTERACTIVE FINANCIAL SIMULATOR WIDGET -->
-        <section id="simulador" class="bg-sand-50 rounded-3xl p-8 md:p-12 border border-sand-200 shadow-soft-lg space-y-8">
+        <!-- SECTION 2: INTERACTIVE CONSÓRCIO SIMULATOR WIDGET -->
+        <section id="simulador" class="space-y-8">
             <div class="text-center max-w-3xl mx-auto space-y-3">
                 <span class="text-gold text-xs font-extrabold uppercase tracking-widest bg-gold-50 px-3 py-1 rounded-full border border-gold-200 inline-block">
                     Ferramenta Interativa Privada
                 </span>
                 <h3 class="font-serif text-3xl md:text-4xl font-bold text-charcoal">
-                    Simulador de Alavancagem e Proteção MCM Capital
+                    Simulador de Consórcio MCM Capital
                 </h3>
                 <p class="text-charcoal-muted text-sm font-light">
-                    Selecione o seu objetivo patrimonial abaixo e compare as projeções de rentabilidade e alavancagem inteligente com nossos especialistas.
+                    Responda quatro perguntas e compare, no mesmo cenário, a <strong class="font-semibold text-charcoal">cessão da carta contemplada</strong> e a <strong class="font-semibold text-charcoal">compra do imóvel para renda</strong>. Todas as premissas ficam visíveis.
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-white p-6 md:p-8 rounded-2xl border border-sand-200">
+            <!-- QUIZ -->
+            <div id="mcmQuiz" class="bg-white p-8 md:p-10 rounded-3xl border border-sand-200 shadow-soft-lg max-w-2xl mx-auto">
+                <div class="flex gap-1.5 mb-8" id="mcmSteps"></div>
+                <div id="mcmQBody"></div>
+                <div class="flex items-center justify-between mt-8">
+                    <button id="mcmQBack" class="px-5 py-2.5 rounded-full border border-sand-200 text-xs font-bold uppercase tracking-wider text-charcoal hover:border-gold hover:text-gold transition-colors invisible">
+                        Voltar
+                    </button>
+                    <button id="mcmQNext" disabled class="px-6 py-2.5 rounded-full bg-gold hover:bg-gold-dark text-white text-xs font-bold uppercase tracking-wider transition-colors disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-gold">
+                        Continuar
+                    </button>
+                </div>
+            </div>
 
-                <!-- Calculator Inputs (Cols 7) -->
-                <div class="lg:col-span-7 space-y-6">
+            <!-- LEITURA PERSONALIZADA -->
+            <div id="mcmLeitura" class="hidden max-w-2xl mx-auto space-y-4">
+                <span class="text-gold text-xs font-extrabold uppercase tracking-widest block text-center">A sua leitura</span>
+                <h3 id="mcmLTitle" class="font-serif text-2xl md:text-3xl font-bold text-charcoal text-center"></h3>
+                <div id="mcmLText" class="text-charcoal-muted text-sm font-light leading-relaxed space-y-3"></div>
+                <p class="text-[11px] text-charcoal-subtle font-light text-center pt-2">
+                    Simulação educacional. Não considera IR, ITBI, cartório, vacância nem custos de aquisição. A contemplação depende de sorteio ou lance e não tem data garantida.
+                </p>
+            </div>
+
+            <!-- SIMULADOR -->
+            <div id="mcmSim" class="hidden space-y-8">
+                <div class="text-center max-w-2xl mx-auto space-y-2 pt-4">
+                    <span class="text-gold text-xs font-extrabold uppercase tracking-widest block">Monte o seu cenário</span>
+                    <h4 class="font-serif text-2xl md:text-3xl font-bold text-charcoal">Altere as variáveis e compare os dois caminhos</h4>
+                </div>
+
+                <!-- Controls -->
+                <div class="bg-sand-50 p-6 md:p-8 rounded-3xl border border-sand-200 grid grid-cols-2 lg:grid-cols-4 gap-6">
                     <div>
-                        <label class="block text-xs font-bold uppercase text-charcoal mb-2">1. Selecione o Objetivo Estratégico:</label>
-                        <select id="simGoal" onchange="calculateSimulatedResults()" class="w-full bg-sand-50 border border-sand-200 rounded-xl p-3 text-xs font-semibold text-charcoal focus:outline-none focus:border-gold">
-                            <option value="shortstay">Imóvel para Airbnb / Short Stay High-Yield (Rentabilidade Mensal)</option>
-                            <option value="consorcio">Consórcio de Alto Padrão (Compra sem Juros Bancários)</option>
-                            <option value="protecao">Seguro de Vida &amp; Blindagem Sucessória em Dólar</option>
-                            <option value="saude">Plano de Saúde Executivo de Alta Cobertura</option>
+                        <label for="mcmCarta" class="block text-[10px] font-bold uppercase tracking-wider text-charcoal mb-2">Valor da carta</label>
+                        <select id="mcmCarta" class="w-full bg-white border border-sand-200 rounded-xl p-3 text-xs font-semibold text-charcoal focus:outline-none focus:border-gold"></select>
+                    </div>
+                    <div>
+                        <label for="mcmMes" class="block text-[10px] font-bold uppercase tracking-wider text-charcoal mb-2">Mês da contemplação</label>
+                        <div class="font-serif font-bold text-2xl text-charcoal leading-none"><span id="mcmVMes">36</span> <span class="text-xs font-sans font-normal text-charcoal-subtle">de 219</span></div>
+                        <input type="range" id="mcmMes" min="1" max="219" value="36" class="w-full accent-gold mt-2">
+                    </div>
+                    <div>
+                        <label for="mcmLoc" class="block text-[10px] font-bold uppercase tracking-wider text-charcoal mb-2">Locação estimada</label>
+                        <select id="mcmLoc" class="w-full bg-white border border-sand-200 rounded-xl p-3 text-xs font-semibold text-charcoal focus:outline-none focus:border-gold">
+                            <option value="0.006">0,6% a.m. · longa temporada</option>
+                            <option value="0.008" selected>0,8% a.m.</option>
+                            <option value="0.010">1,0% a.m.</option>
+                            <option value="0.012">1,2% a.m. · curta temporada</option>
+                            <option value="0.015">1,5% a.m.</option>
                         </select>
                     </div>
-
                     <div>
-                        <div class="flex justify-between items-center mb-2">
-                            <label class="text-xs font-bold uppercase text-charcoal">2. Valor Pretendido do Ativo ou Apólice:</label>
-                            <span id="simValueDisplay" class="font-mono text-gold-dark font-bold text-sm">R$ 3.000.000</span>
+                        <label for="mcmIncc" class="block text-[10px] font-bold uppercase tracking-wider text-charcoal mb-2">INCC anual</label>
+                        <select id="mcmIncc" class="w-full bg-white border border-sand-200 rounded-xl p-3 text-xs font-semibold text-charcoal focus:outline-none focus:border-gold">
+                            <option value="0.03">3%</option>
+                            <option value="0.05" selected>5%</option>
+                            <option value="0.075">7,5%</option>
+                            <option value="0.10">10%</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Outputs -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                    <!-- Saída A: Cessão -->
+                    <div class="bg-white p-6 md:p-8 rounded-3xl border border-sand-200 shadow-soft-lg space-y-1">
+                        <span class="text-[10px] font-extrabold text-gold uppercase tracking-widest">Saída A · Cessão da Carta</span>
+                        <h5 class="font-serif text-xl font-bold text-charcoal">Cessão da carta contemplada</h5>
+                        <p class="text-xs text-charcoal-subtle font-light">Liquidação estimada em 10 dias após a contemplação.</p>
+                        <div id="mcmARes" class="font-serif text-3xl font-bold pt-2"></div>
+                        <p class="text-xs text-charcoal-subtle font-light">resultado bruto estimado</p>
+
+                        <div class="pt-4 mt-2 border-t border-sand-200 space-y-2.5 font-mono text-xs">
+                            <div class="flex justify-between items-center"><span class="text-charcoal-muted font-sans">Crédito atualizado</span><span id="mcmACred" class="font-bold text-charcoal"></span></div>
+                            <div class="flex justify-between items-center"><span class="text-charcoal-muted font-sans">Valor estimado da cessão</span><span id="mcmAVenda" class="font-bold text-charcoal"></span></div>
+                            <div class="flex justify-between items-center"><span class="text-charcoal-muted font-sans">Total desembolsado</span><span id="mcmADes" class="font-bold text-charcoal"></span></div>
+                            <div class="flex justify-between items-center"><span class="text-charcoal-muted font-sans">Resultado sobre desembolso</span><span id="mcmARet" class="font-bold text-charcoal"></span></div>
+                            <div class="flex justify-between items-center"><span class="text-charcoal-muted font-sans">TIR mensal estimada</span><span id="mcmATir" class="font-bold text-charcoal"></span></div>
                         </div>
-                        <input type="range" id="simValue" min="500000" max="20000000" step="500000" value="3000000" oninput="calculateSimulatedResults()" class="w-full accent-gold bg-sand-100 h-2 rounded-lg cursor-pointer">
-                        <div class="flex justify-between text-[10px] text-charcoal-subtle font-mono mt-1">
-                            <span>R$ 500 mil</span>
-                            <span>R$ 10 Milhões</span>
-                            <span>R$ 20+ Milhões</span>
-                        </div>
+                        <p class="text-[10px] text-charcoal-subtle font-light pt-3">Depende da premissa de cessão a 30% do crédito atualizado. Sem garantia de comprador, preço ou liquidez.</p>
                     </div>
 
-                    <div>
-                        <label class="block text-xs font-bold uppercase text-charcoal mb-2">3. Prazo Desejado de Estruturação:</label>
-                        <div class="grid grid-cols-3 gap-3" id="termButtons">
-                            <button type="button" onclick="setSimTerm(36, this)" class="term-btn py-2.5 rounded-xl border border-sand-200 text-xs font-bold text-charcoal hover:border-gold hover:text-gold transition-colors">36 Meses</button>
-                            <button type="button" onclick="setSimTerm(72, this)" class="term-btn active-term py-2.5 rounded-xl border border-sand-200 text-xs font-bold text-charcoal hover:border-gold hover:text-gold transition-colors">72 Meses</button>
-                            <button type="button" onclick="setSimTerm(120, this)" class="term-btn py-2.5 rounded-xl border border-sand-200 text-xs font-bold text-charcoal hover:border-gold hover:text-gold transition-colors">120 Meses</button>
+                    <!-- Saída B: Renda -->
+                    <div class="bg-charcoal text-white p-6 md:p-8 rounded-3xl border border-gold/30 shadow-xl space-y-1">
+                        <span class="text-[10px] font-extrabold text-gold uppercase tracking-widest">Saída B · Crédito no Imóvel</span>
+                        <h5 class="font-serif text-xl font-bold text-white">Crédito no imóvel, avaliando a renda</h5>
+                        <p class="text-xs text-sand-100/80 font-light">Mantém o crédito integral e utiliza a carta contemplada.</p>
+                        <div id="mcmBImovel" class="font-serif text-3xl font-bold text-white pt-2"></div>
+                        <p class="text-xs text-sand-100/80 font-light">valor estimado do imóvel adquirido</p>
+
+                        <div class="pt-4 mt-2 border-t border-charcoal-muted/40 space-y-2.5 font-mono text-xs">
+                            <div class="flex justify-between items-center"><span class="text-sand-100 font-sans">Saldo estimado a pagar</span><span id="mcmBSaldo" class="font-bold text-white"></span></div>
+                            <div class="flex justify-between items-center"><span class="text-sand-100 font-sans" id="mcmBParcLbl">Parcela pós-contemplação</span><span id="mcmBParc" class="font-bold text-gold"></span></div>
+                            <div class="flex justify-between items-center"><span class="text-sand-100 font-sans">Aluguel líquido estimado</span><span id="mcmBAlug" class="font-bold text-white"></span></div>
+                            <div class="flex justify-between items-center"><span class="text-sand-100 font-sans">Cobertura da parcela</span><span id="mcmBCob" class="font-bold text-white"></span></div>
+                            <div class="flex justify-between items-center"><span class="text-sand-100 font-sans">Aporte ou sobra mensal</span><span id="mcmBAporte" class="font-bold text-white"></span></div>
+                            <div class="flex justify-between items-center"><span class="text-sand-100 font-sans">Meses restantes</span><span id="mcmBMeses" class="font-bold text-white"></span></div>
+                        </div>
+                        <p class="text-[10px] text-sand-100/70 font-light pt-3">Quanto mais tarde a contemplação, menos meses restam para diluir o saldo — a parcela sobe e a cobertura cai.</p>
+                    </div>
+                </div>
+
+                <!-- Chart -->
+                <div class="bg-sand-50 p-6 md:p-8 rounded-3xl border border-sand-200 space-y-3">
+                    <span class="text-gold text-xs font-extrabold uppercase tracking-widest block">Leitura visual</span>
+                    <h5 class="font-serif text-xl font-bold text-charcoal">Como a cessão muda com o tempo</h5>
+                    <div class="flex items-center gap-6 text-xs text-charcoal-muted">
+                        <span class="flex items-center gap-1.5"><i class="inline-block w-3.5 h-[3px] rounded-sm bg-gold"></i>Valor estimado da cessão</span>
+                        <span class="flex items-center gap-1.5"><i class="inline-block w-3.5 h-[3px] rounded-sm bg-charcoal-subtle"></i>Capital desembolsado</span>
+                    </div>
+                    <div id="mcmChart" class="mcm-chart"></div>
+                    <p id="mcmChartNote" class="text-xs text-charcoal-subtle font-light"></p>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-3 pt-2">
+                        <div class="bg-white rounded-xl border border-sand-200 p-3">
+                            <span class="text-[10px] text-charcoal-subtle uppercase tracking-wider block">Taxa adm. + fundo</span>
+                            <b class="text-sm font-bold text-charcoal">23% no total</b>
+                        </div>
+                        <div class="bg-white rounded-xl border border-sand-200 p-3">
+                            <span class="text-[10px] text-charcoal-subtle uppercase tracking-wider block">Parcela pré-contemplação</span>
+                            <b class="text-sm font-bold text-charcoal">50% da integral</b>
+                        </div>
+                        <div class="bg-white rounded-xl border border-sand-200 p-3">
+                            <span class="text-[10px] text-charcoal-subtle uppercase tracking-wider block">Cessão no secundário</span>
+                            <b class="text-sm font-bold text-charcoal">30% do crédito</b>
+                        </div>
+                        <div class="bg-white rounded-xl border border-sand-200 p-3">
+                            <span class="text-[10px] text-charcoal-subtle uppercase tracking-wider block">Prazo do plano-base</span>
+                            <b class="text-sm font-bold text-charcoal">220 meses</b>
                         </div>
                     </div>
                 </div>
 
-                <!-- Projections & Results (Cols 5) -->
-                <div class="lg:col-span-5 bg-charcoal text-white p-8 rounded-2xl space-y-6 border border-gold/30 shadow-xl flex flex-col justify-between h-full">
-                    <div>
-                        <span class="text-[10px] font-bold text-gold uppercase tracking-widest block mb-1">PROJEÇÃO ESTIMADA MCM</span>
-                        <h4 class="font-serif text-2xl font-bold text-white mb-4" id="simResultTitle">Rentabilidade Estimada em Short Stay</h4>
-
-                        <div class="space-y-4 font-mono">
-                            <div class="flex justify-between items-center pb-2 border-b border-charcoal-muted/40">
-                                <span class="text-xs text-sand-100 font-sans" id="simMetric1Label">Retorno Mensal Estimado:</span>
-                                <span id="simMonthlyYield" class="text-emerald-400 font-bold text-lg">R$ 37.000 /mês</span>
-                            </div>
-
-                            <div class="flex justify-between items-center pb-2 border-b border-charcoal-muted/40">
-                                <span class="text-xs text-sand-100 font-sans" id="simMetric2Label">Economia x Financiamento:</span>
-                                <span id="simSavings" class="text-gold font-bold text-lg">R$ 1.120.000</span>
-                            </div>
-
-                            <div class="flex justify-between items-center">
-                                <span class="text-xs text-sand-100 font-sans">Taxa Média da Estrutura MCM:</span>
-                                <span id="simCost" class="text-white font-bold text-sm">1.6% a.a.</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="pt-6 border-t border-charcoal-muted/50 space-y-3">
-                        <button onclick="requestFeasibilityStudy()" class="w-full py-3.5 bg-gold hover:bg-gold-dark text-white rounded-xl text-xs font-bold uppercase tracking-wider transition-all shadow-gold-glow flex items-center justify-center space-x-2">
-                            <i class="fa-solid fa-paper-plane"></i>
-                            <span>Solicitar Estudo de Viabilidade MCM</span>
-                        </button>
-                        <p class="text-[9px] text-center text-charcoal-subtle">
-                            Estudo gratuito, confidencial e elaborado por um planejador financeiro certificado.
-                        </p>
-                    </div>
+                <div class="text-center">
+                    <button onclick="openAdvisoryModal('Estruturação de Consórcio MCM')" class="w-full sm:w-auto bg-gold hover:bg-gold-dark text-white px-8 py-3.5 rounded-xl font-bold text-xs uppercase tracking-wider transition-all shadow-gold-glow inline-flex items-center justify-center space-x-2">
+                        <i class="fa-solid fa-paper-plane"></i>
+                        <span>Falar com Especialista em Consórcio sobre este cenário</span>
+                    </button>
                 </div>
-
             </div>
         </section>
 
@@ -961,10 +1064,6 @@
             setTimeout(() => { btn.textContent = originalText; btn.disabled = false; }, 2500);
         }
 
-        function requestFeasibilityStudy() {
-            openAdvisoryModal('Diagnóstico Geral MCM');
-        }
-
         // ---------- CATEGORY FILTER ----------
         function filterCategory(cat, btn) {
             document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active-cat'));
@@ -979,84 +1078,246 @@
             });
         }
 
-        // ---------- SIMULATOR ----------
-        function formatBRL(value) {
-            return 'R$ ' + Math.round(value).toLocaleString('pt-BR');
-        }
-
-        let simTerm = 72;
-        function setSimTerm(term, btn) {
-            simTerm = term;
-            document.querySelectorAll('.term-btn').forEach(b => b.classList.remove('active-term'));
-            btn.classList.add('active-term');
-            calculateSimulatedResults();
-        }
-
-        function calculateSimulatedResults() {
-            const goal = document.getElementById('simGoal').value;
-            const value = parseFloat(document.getElementById('simValue').value);
-            document.getElementById('simValueDisplay').textContent = formatBRL(value);
-
-            const titleEl = document.getElementById('simResultTitle');
-            const label1 = document.getElementById('simMetric1Label');
-            const label2 = document.getElementById('simMetric2Label');
-            const metric1 = document.getElementById('simMonthlyYield');
-            const metric2 = document.getElementById('simSavings');
-            const cost = document.getElementById('simCost');
-
-            const bankRate = 0.12;
-            const mcmRate = 0.016 + (simTerm / 120) * 0.006;
-            const years = simTerm / 12;
-
-            if (goal === 'shortstay') {
-                titleEl.textContent = 'Rentabilidade Estimada em Short Stay';
-                label1.textContent = 'Retorno Mensal Estimado:';
-                label2.textContent = 'Retorno Anualizado (14.8% a.a.):';
-                const monthly = (value * 0.148) / 12;
-                metric1.textContent = formatBRL(monthly) + ' /mês';
-                metric1.className = 'text-emerald-400 font-bold text-lg';
-                metric2.textContent = formatBRL(value * 0.148) + ' /ano';
-                metric2.className = 'text-gold font-bold text-lg';
-                cost.textContent = 'Gestão MCM a partir de 15% da receita';
-            } else if (goal === 'consorcio') {
-                titleEl.textContent = 'Economia com Consórcio Estruturado MCM';
-                label1.textContent = 'Custo Total Estimado (MCM):';
-                label2.textContent = 'Economia x Financiamento Bancário:';
-                const mcmCost = value * mcmRate * years;
-                const bankCost = value * bankRate * years;
-                metric1.textContent = formatBRL(mcmCost);
-                metric1.className = 'text-white font-bold text-lg';
-                metric2.textContent = formatBRL(bankCost - mcmCost);
-                metric2.className = 'text-gold font-bold text-lg';
-                cost.textContent = (mcmRate * 100).toFixed(1) + '% a.a.';
-            } else if (goal === 'protecao') {
-                titleEl.textContent = 'Simulação de Proteção Sucessória';
-                label1.textContent = 'Prêmio Mensal Estimado:';
-                label2.textContent = 'Liquidez Garantida a Herdeiros:';
-                const monthlyPremium = (value * 0.006) / 12;
-                metric1.textContent = formatBRL(monthlyPremium) + ' /mês';
-                metric1.className = 'text-white font-bold text-lg';
-                metric2.textContent = formatBRL(value);
-                metric2.className = 'text-gold font-bold text-lg';
-                cost.textContent = 'Apólice em USD, sem incidência de ITCMD';
-            } else {
-                titleEl.textContent = 'Simulação de Saúde Executiva';
-                label1.textContent = 'Investimento Mensal Estimado:';
-                label2.textContent = 'Cobertura de Reembolso Anual:';
-                const monthlyHealth = Math.max(1800, value * 0.0009);
-                metric1.textContent = formatBRL(monthlyHealth) + ' /mês';
-                metric1.className = 'text-white font-bold text-lg';
-                metric2.textContent = 'Ilimitada';
-                metric2.className = 'text-gold font-bold text-lg';
-                cost.textContent = 'Rede Einstein, Sírio-Libanês e internacional';
-            }
-        }
-
         function scrollToCalculator() {
             document.getElementById('simulador').scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
 
-        calculateSimulatedResults();
+        // ---------- CONSÓRCIO SIMULATOR: MODELO DE CÁLCULO ----------
+        const MCM_P = {
+            CARTA_BASE: 500000,
+            PRAZO: 220,
+            PARCELA_RED_BASE: 1397.5,
+            CESSAO: 0.30,
+            OBRIGACAO: 1.23,
+            SEGURO: 0.000555,
+            LIQUIDACAO: 10 / 30,
+            MES_MAX: 219,
+            MES_LEITURA: 36
+        };
+
+        const mcm$ = id => document.getElementById(id);
+        const mcmFator = (m, incc) => Math.pow(1 + incc, Math.floor((m - 1) / 12));
+        const mcmCredito = (m, carta, incc) => carta * mcmFator(m, incc);
+        const mcmParcela = (m, carta, incc) => MCM_P.PARCELA_RED_BASE * (carta / MCM_P.CARTA_BASE) * mcmFator(m, incc);
+        function mcmDesembolsado(m, carta, incc) {
+            let s = 0;
+            for (let i = 1; i <= m; i++) s += mcmParcela(i, carta, incc);
+            return s;
+        }
+
+        function mcmTir(fluxos) {
+            const vpl = r => fluxos.reduce((s, f) => s + f.valor / Math.pow(1 + r, f.t), 0);
+            let lo = -0.95, hi = 1, flo = vpl(lo), fhi = vpl(hi), k = 0;
+            while (flo * fhi > 0 && hi < 1024 && k < 30) { hi *= 2; fhi = vpl(hi); k++; }
+            if (flo * fhi > 0) return null;
+            for (let i = 0; i < 140; i++) {
+                const mid = (lo + hi) / 2, fm = vpl(mid);
+                if (Math.abs(fm) < 1e-8) return mid;
+                if (flo * fm <= 0) hi = mid; else { lo = mid; flo = fm; }
+            }
+            return (lo + hi) / 2;
+        }
+
+        function mcmSaidaA(m, carta, incc) {
+            const cred = mcmCredito(m, carta, incc);
+            const venda = cred * MCM_P.CESSAO;
+            const des = mcmDesembolsado(m, carta, incc);
+            const fluxos = [];
+            for (let i = 1; i <= m; i++) fluxos.push({ t: i - 1, valor: -mcmParcela(i, carta, incc) });
+            fluxos.push({ t: m - 1 + MCM_P.LIQUIDACAO, valor: venda });
+            return { cred, venda, des, res: venda - des, ret: (venda - des) / des, tir: mcmTir(fluxos) };
+        }
+
+        function mcmSaidaB(m, carta, incc, loc) {
+            const cred = mcmCredito(m, carta, incc);
+            const des = mcmDesembolsado(m, carta, incc);
+            const saldo = Math.max(0, cred * MCM_P.OBRIGACAO - des);
+            const meses = Math.max(1, MCM_P.PRAZO - m);
+            const parcPos = saldo / meses + cred * MCM_P.SEGURO;
+            const aluguel = cred * loc;
+            return { cred, saldo, meses, parcPos, aluguel, cob: aluguel / parcPos, aporte: parcPos - aluguel, quitacao: meses <= 12 };
+        }
+
+        function mcmMesVirada(carta, incc) {
+            let des = 0;
+            for (let m = 1; m <= MCM_P.MES_MAX; m++) {
+                des += mcmParcela(m, carta, incc);
+                if (mcmCredito(m, carta, incc) * MCM_P.CESSAO < des) return m;
+            }
+            return null;
+        }
+
+        const mcmBrl = v => new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 0 }).format(v);
+        const mcmPct = (v, d = 1) => new Intl.NumberFormat('pt-BR', { style: 'percent', minimumFractionDigits: d, maximumFractionDigits: d }).format(v);
+
+        // ---------- CONSÓRCIO SIMULATOR: QUIZ ----------
+        const MCM_CARTAS = [
+            { v: 500000, l: 'R$ 500 mil' }, { v: 750000, l: 'R$ 750 mil' }, { v: 1000000, l: 'R$ 1 milhão' },
+            { v: 1500000, l: 'R$ 1,5 milhão' }, { v: 2000000, l: 'R$ 2 milhões' }
+        ];
+        const MCM_FAIXAS = [
+            { v: 'a', l: 'Até R$ 1.500', min: 0, max: 1500 },
+            { v: 'b', l: 'Entre R$ 1.500 e R$ 3.000', min: 1500, max: 3000 },
+            { v: 'c', l: 'Entre R$ 3.000 e R$ 6.000', min: 3000, max: 6000 },
+            { v: 'd', l: 'Entre R$ 6.000 e R$ 10.000', min: 6000, max: 10000 },
+            { v: 'e', l: 'Acima de R$ 10.000', min: 10000, max: null }
+        ];
+        const MCM_OBJETIVOS = [
+            { v: 'venda', l: 'Monetizar a contemplação', n: 'Avaliar a cessão da cota depois de contemplado.' },
+            { v: 'renda', l: 'Construir patrimônio que gere renda', n: 'Usar o crédito para adquirir imóvel e avaliar locação.' },
+            { v: 'ambas', l: 'Ainda estou avaliando as duas', n: 'Quero entender como cada caminho se comporta.' },
+            { v: 'uso', l: 'Comprar um imóvel para uso próprio', n: 'Moradia ou uso da família, não investimento.' }
+        ];
+        const MCM_QUESTOES = [
+            { key: 'nome', tipo: 'texto', t: 'Como podemos te chamar?' },
+            { key: 'carta', tipo: 'opcoes', t: 'Qual valor de carta você tem em mente?', o: MCM_CARTAS.map(c => ({ v: c.v, l: c.l })) },
+            { key: 'faixa', tipo: 'opcoes', t: 'Quanto cabe por mês no seu caixa, com folga?', o: MCM_FAIXAS },
+            { key: 'obj', tipo: 'opcoes', t: 'O que você quer fazer com a carta?', o: MCM_OBJETIVOS }
+        ];
+        const mcmResp = {};
+        let mcmPasso = 0;
+
+        function mcmRenderQuiz() {
+            mcm$('mcmSteps').innerHTML = MCM_QUESTOES.map((_, i) => `<span class="mcm-step ${i <= mcmPasso ? 'on' : ''}"></span>`).join('');
+            const q = MCM_QUESTOES[mcmPasso];
+            let html = `<p class="text-gold text-xs font-extrabold uppercase tracking-widest mb-1">Pergunta ${mcmPasso + 1} de ${MCM_QUESTOES.length}</p><h4 class="font-serif text-2xl font-bold text-charcoal mb-5">${q.t}</h4>`;
+            if (q.tipo === 'texto') {
+                html += `<input type="text" id="mcmQInput" placeholder="Seu primeiro nome" value="${mcmResp[q.key] || ''}" class="w-full bg-sand-50 border border-sand-200 rounded-xl p-3.5 text-sm focus:outline-none focus:border-gold">`;
+            } else {
+                html += `<div class="space-y-3">` + q.o.map(o =>
+                    `<button type="button" class="mcm-opt ${mcmResp[q.key] == o.v ? 'sel' : ''}" data-v="${o.v}"><span class="text-sm font-semibold">${o.l}</span>${o.n ? `<small>${o.n}</small>` : ''}</button>`
+                ).join('') + `</div>`;
+            }
+            mcm$('mcmQBody').innerHTML = html;
+            mcm$('mcmQBack').classList.toggle('invisible', !mcmPasso);
+            mcm$('mcmQNext').textContent = mcmPasso === MCM_QUESTOES.length - 1 ? 'Ver meu cenário →' : 'Continuar';
+            mcm$('mcmQNext').disabled = !mcmResp[q.key];
+
+            if (q.tipo === 'texto') {
+                const inp = mcm$('mcmQInput');
+                inp.focus();
+                inp.oninput = () => { mcmResp.nome = inp.value.trim(); mcm$('mcmQNext').disabled = !mcmResp.nome; };
+                inp.onkeydown = e => { if (e.key === 'Enter' && mcmResp.nome) mcmAvancar(); };
+            } else {
+                document.querySelectorAll('.mcm-opt').forEach(b => b.onclick = () => {
+                    mcmResp[q.key] = q.key === 'carta' ? Number(b.dataset.v) : b.dataset.v;
+                    mcmRenderQuiz();
+                });
+            }
+        }
+        function mcmAvancar() {
+            if (mcmPasso < MCM_QUESTOES.length - 1) { mcmPasso++; mcmRenderQuiz(); }
+            else mcmConcluir();
+        }
+        mcm$('mcmQNext').onclick = mcmAvancar;
+        mcm$('mcmQBack').onclick = () => { if (mcmPasso) { mcmPasso--; mcmRenderQuiz(); } };
+
+        // ---------- CONSÓRCIO SIMULATOR: LEITURA PERSONALIZADA ----------
+        function mcmConcluir() {
+            mcm$('mcmQuiz').classList.add('hidden');
+            const carta = mcmResp.carta, incc = 0.05, m = MCM_P.MES_LEITURA;
+            const faixa = MCM_FAIXAS.find(f => f.v === mcmResp.faixa);
+            const p1 = mcmParcela(1, carta, incc);
+            const A = mcmSaidaA(m, carta, incc);
+            const B = mcmSaidaB(m, carta, incc, 0.008);
+            const virada = mcmMesVirada(carta, incc);
+
+            let encaixe;
+            if (p1 > (faixa.max ?? Infinity)) encaixe = 'fica acima do que você indicou';
+            else if (p1 > faixa.min) encaixe = 'fica no limite do que você indicou';
+            else encaixe = 'cabe com folga no que você indicou';
+
+            const par = [];
+            par.push(`A parcela reduzida dessa carta começa em <strong class="font-semibold text-charcoal">${mcmBrl(p1)}</strong> por mês e ${encaixe}. Ela é reajustada todo ano pelo INCC, então o aperto tende a aumentar antes da contemplação, não a diminuir.`);
+            par.push(`Em ${m} meses você terá desembolsado <strong class="font-semibold text-charcoal">${mcmBrl(A.des)}</strong>, com um crédito corrigido de <strong class="font-semibold text-charcoal">${mcmBrl(A.cred)}</strong> na mão — ${mcmPct(A.des / A.cred)} do valor. Isso não é rendimento: é a estrutura de crédito dando acesso a um valor grande com desembolso pequeno, cobrando o tempo em troca.`);
+            if (mcmResp.obj === 'venda' || mcmResp.obj === 'ambas')
+                par.push(`<strong class="font-semibold text-charcoal">Saída A, cessão:</strong> contemplando em ${m} meses, o cenário-base estima uma venda de ${mcmBrl(A.venda)} contra ${mcmBrl(A.des)} desembolsados. Esse número depende inteiramente da premissa de cessão a 30% — a mais frágil do modelo.`);
+            if (mcmResp.obj === 'renda' || mcmResp.obj === 'ambas')
+                par.push(`<strong class="font-semibold text-charcoal">Saída B, renda:</strong> no mesmo mês, o aluguel estimado de ${mcmBrl(B.aluguel)} cobriria ${mcmPct(B.cob, 0)} de uma parcela pós-contemplação de ${mcmBrl(B.parcPos)}.`);
+            if (mcmResp.obj === 'uso')
+                par.push(`Para uso próprio, o ponto central é o fluxo de caixa: depois da contemplação, a parcela estimada passa para ${mcmBrl(B.parcPos)} por mês.`);
+            if (virada)
+                par.push(`E o ponto que quase ninguém mostra: mantida a cessão a 30%, o resultado bruto da venda deixa de ser positivo por volta do <strong class="font-semibold text-charcoal">mês ${virada}</strong>.`);
+
+            mcm$('mcmLTitle').textContent = `${mcmResp.nome}, é assim que essa estrutura se comporta no seu caso`;
+            mcm$('mcmLText').innerHTML = par.map(t => `<p>${t}</p>`).join('');
+            mcm$('mcmLeitura').classList.remove('hidden');
+            mcm$('mcmSim').classList.remove('hidden');
+            mcm$('mcmCarta').value = carta;
+            mcmSimular();
+            mcm$('mcmLeitura').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // ---------- CONSÓRCIO SIMULATOR: CONTROLES ----------
+        mcm$('mcmCarta').innerHTML = MCM_CARTAS.map(c => `<option value="${c.v}">${c.l}</option>`).join('');
+        ['mcmCarta', 'mcmMes', 'mcmLoc', 'mcmIncc'].forEach(id => mcm$(id).addEventListener('input', mcmSimular));
+
+        function mcmSimular() {
+            const carta = Number(mcm$('mcmCarta').value), m = Number(mcm$('mcmMes').value);
+            const loc = Number(mcm$('mcmLoc').value), incc = Number(mcm$('mcmIncc').value);
+            mcm$('mcmVMes').textContent = m;
+
+            const A = mcmSaidaA(m, carta, incc);
+            mcm$('mcmARes').textContent = mcmBrl(A.res);
+            mcm$('mcmARes').className = 'font-serif text-3xl font-bold pt-2 ' + (A.res >= 0 ? 'text-emerald-600' : 'text-rose-500');
+            mcm$('mcmACred').textContent = mcmBrl(A.cred);
+            mcm$('mcmAVenda').textContent = mcmBrl(A.venda);
+            mcm$('mcmADes').textContent = mcmBrl(A.des);
+            mcm$('mcmARet').textContent = mcmPct(A.ret);
+            mcm$('mcmATir').textContent = A.tir == null ? 'n/a' : mcmPct(A.tir, 2) + ' a.m.';
+
+            const B = mcmSaidaB(m, carta, incc, loc);
+            mcm$('mcmBImovel').textContent = mcmBrl(B.cred);
+            mcm$('mcmBSaldo').textContent = mcmBrl(B.saldo);
+            mcm$('mcmBParcLbl').textContent = B.quitacao ? `Saldo a quitar em ${B.meses} meses` : 'Parcela pós-contemplação';
+            mcm$('mcmBParc').textContent = B.quitacao ? mcmBrl(B.saldo) : mcmBrl(B.parcPos);
+            mcm$('mcmBAlug').textContent = mcmBrl(B.aluguel);
+            mcm$('mcmBCob').textContent = B.quitacao ? 'n/a' : mcmPct(B.cob, 0);
+            mcm$('mcmBAporte').textContent = B.quitacao ? 'n/a' : (B.aporte > 0 ? 'Aporte de ' : 'Sobra de ') + mcmBrl(Math.abs(B.aporte));
+            mcm$('mcmBMeses').textContent = B.meses;
+
+            mcmDesenharGrafico(carta, incc, m);
+        }
+
+        // ---------- CONSÓRCIO SIMULATOR: GRÁFICO (SVG PURO) ----------
+        function mcmDesenharGrafico(carta, incc, mesSel) {
+            const W = 900, H = 280, pl = 56, pr = 16, pt = 12, pb = 28;
+            const pts = [];
+            let acc = 0;
+            for (let i = 1; i <= MCM_P.MES_MAX; i++) {
+                acc += mcmParcela(i, carta, incc);
+                if (i === 1 || i % 3 === 0 || i === MCM_P.MES_MAX) pts.push({ m: i, venda: mcmCredito(i, carta, incc) * MCM_P.CESSAO, des: acc });
+            }
+            const maxY = Math.max(...pts.map(p => Math.max(p.venda, p.des))) * 1.05;
+            const x = m => pl + (m - 1) / (MCM_P.MES_MAX - 1) * (W - pl - pr);
+            const y = v => pt + (1 - v / maxY) * (H - pt - pb);
+            const path = k => pts.map((p, i) => (i ? 'L' : 'M') + x(p.m).toFixed(1) + ' ' + y(p[k]).toFixed(1)).join(' ');
+
+            let grid = '';
+            for (let i = 0; i <= 4; i++) {
+                const v = maxY / 4 * i;
+                grid += `<line x1="${pl}" x2="${W - pr}" y1="${y(v)}" y2="${y(v)}" stroke="#E8E6DB"/>` +
+                        `<text x="${pl - 8}" y="${y(v) + 4}" text-anchor="end">${Math.round(v / 1000)}k</text>`;
+            }
+            const xt = [1, 36, 72, 108, 144, 180, 219].map(m => `<text x="${x(m)}" y="${H - 8}" text-anchor="middle">${m}m</text>`).join('');
+
+            const virada = mcmMesVirada(carta, incc);
+            const vMark = virada ? `<line x1="${x(virada)}" x2="${x(virada)}" y1="${pt}" y2="${H - pb}" stroke="#F43F5E" stroke-dasharray="4 4"/>` : '';
+            const sel = `<line x1="${x(mesSel)}" x2="${x(mesSel)}" y1="${pt}" y2="${H - pb}" stroke="#B89758" stroke-width="1.5"/>` +
+                        `<circle cx="${x(mesSel)}" cy="${y(mcmCredito(mesSel, carta, incc) * MCM_P.CESSAO)}" r="4" fill="#B89758"/>` +
+                        `<circle cx="${x(mesSel)}" cy="${y(mcmDesembolsado(mesSel, carta, incc))}" r="4" fill="#9CA3AF"/>`;
+
+            mcm$('mcmChart').innerHTML = `<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Cessão versus desembolso ao longo do tempo">
+                ${grid}${xt}${vMark}
+                <path d="${path('des')}" fill="none" stroke="#9CA3AF" stroke-width="2"/>
+                <path d="${path('venda')}" fill="none" stroke="#B89758" stroke-width="2.5"/>
+                ${sel}</svg>`;
+            mcm$('mcmChartNote').textContent = virada
+                ? `As linhas se cruzam por volta do mês ${virada}: a partir daí, o capital desembolsado supera o valor estimado de cessão.`
+                : 'No horizonte simulado, o valor de cessão fica sempre acima do desembolsado.';
+        }
+
+        mcmRenderQuiz();
 
         // ---------- ARTICLE CONTENT ----------
         const articles = {
