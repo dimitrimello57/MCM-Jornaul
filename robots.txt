@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://dimitrimello57.github.io/MCM-Jornaul/sitemap.xml
