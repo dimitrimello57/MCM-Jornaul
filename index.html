@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCM Journal | Inteligência Exclusiva, Luxo & Assessoria Patrimonial</title>
+    <meta name="description" content="MCM Journal: inteligência sobre imóveis de alto padrão, short stay, consórcio estruturado, seguro de vida e saúde executiva, curada pela MCM Capital Assessoria.">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind Theme Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            50: '#FAF7EE',
+                            100: '#F3EDD7',
+                            200: '#E6D5A8',
+                            300: '#D5BA74',
+                            DEFAULT: '#B89758',
+                            dark: '#8C6F35',
+                        },
+                        charcoal: {
+                            50: '#F8F9FA',
+                            100: '#F1F3F5',
+                            800: '#1E293B',
+                            DEFAULT: '#111827',
+                            dark: '#0B0F17',
+                            muted: '#6B7280',
+                            subtle: '#9CA3AF'
+                        },
+                        sand: {
+                            50: '#FAF9F6',
+                            100: '#F3F2EC',
+                            200: '#E8E6DB'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Cormorant Garamond', 'Georgia', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'soft-lg': '0 20px 40px -15px rgba(0, 0, 0, 0.04)',
+                        'soft-xl': '0 30px 60px -12px rgba(0, 0, 0, 0.07)',
+                        'gold-glow': '0 10px 30px -5px rgba(184, 151, 88, 0.25)'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #FFFFFF;
+            color: #111827;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .font-serif {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .img-zoom-container {
+            overflow: hidden;
+        }
+        .img-zoom-container img {
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .img-zoom-container:hover img {
+            transform: scale(1.05);
+        }
+
+        .glass-badge {
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(8px);
+        }
+
+        .glass-dark {
+            background: rgba(17, 24, 39, 0.85);
+            backdrop-filter: blur(12px);
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { opacity: 0.8; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.03); }
+        }
+        .glow-cta {
+            animation: pulseGlow 3s infinite ease-in-out;
+        }
+
+        [data-modal] {
+            display: none;
+        }
+        [data-modal].active {
+            display: flex;
+        }
+
+        .modal-panel {
+            animation: modalIn 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        @keyframes modalIn {
+            from { opacity: 0; transform: translateY(16px) scale(0.98); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .category-btn.active-cat {
+            color: #B89758;
+            border-bottom: 2px solid #B89758;
+            padding-bottom: 0.125rem;
+        }
+
+        .term-btn.active-term {
+            border-color: #B89758;
+            border-width: 2px;
+            color: #B89758;
+            background-color: #FAF7EE;
+        }
+
+        [data-cat-item] {
+            display: block;
+        }
+        [data-cat-item].hidden-cat {
+            display: none;
+        }
+    </style>
+</head>
+
+<body class="bg-white text-charcoal flex flex-col min-h-screen relative">
+
+    <!-- TOP TICKER BAR -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-charcoal-100 transition-all duration-300">
+
+        <!-- Live Ticker -->
+        <div class="bg-sand-50 py-2 border-b border-sand-200/60">
+            <div class="max-w-7xl mx-auto px-6 flex items-center justify-between text-xs">
+
+                <div class="flex items-center space-x-3 shrink-0">
+                    <span class="w-2 h-2 rounded-full bg-gold animate-pulse"></span>
+                    <span class="font-extrabold uppercase tracking-widest text-[10px] text-charcoal">MCM Intelligence</span>
+                </div>
+
+                <!-- Ticker Pills -->
+                <div class="flex items-center space-x-6 overflow-x-auto no-scrollbar py-0.5 text-[11px] font-medium text-charcoal-muted">
+                    <div class="flex items-center space-x-2 bg-white px-3 py-1 rounded-full border border-sand-200 shadow-sm shrink-0">
+                        <span class="font-bold text-charcoal">SHORT STAY YIELD</span>
+                        <span class="font-mono text-emerald-600 font-bold">14.8% a.a.</span>
+                        <span class="text-xs text-emerald-600"><i class="fa-solid fa-arrow-up-right text-[9px]"></i></span>
+                    </div>
+
+                    <div class="flex items-center space-x-2 bg-white px-3 py-1 rounded-full border border-sand-200 shadow-sm shrink-0">
+                        <span class="font-bold text-charcoal">CONSÓRCIO REAL LEVERAGE</span>
+                        <span class="font-mono text-gold-dark font-bold">Custo 1.8% a.a.</span>
+                    </div>
+
+                    <div class="flex items-center space-x-2 bg-white px-3 py-1 rounded-full border border-sand-200 shadow-sm shrink-0">
+                        <span class="font-bold text-charcoal">IBOVESPA</span>
+                        <span class="font-mono">129.410</span>
+                        <span class="text-emerald-600 font-semibold">+0.74%</span>
+                    </div>
+
+                    <div class="flex items-center space-x-2 bg-white px-3 py-1 rounded-full border border-sand-200 shadow-sm shrink-0">
+                        <span class="font-bold text-charcoal">USD / BRL</span>
+                        <span class="font-mono">R$ 4.96</span>
+                        <span class="text-rose-500 font-semibold">-0.31%</span>
+                    </div>
+
+                    <div class="flex items-center space-x-2 bg-white px-3 py-1 rounded-full border border-sand-200 shadow-sm shrink-0">
+                        <span class="font-bold text-charcoal">ROLAND GARROS VIP SEATS</span>
+                        <span class="font-mono text-gold-dark font-bold">Em Alta</span>
+                    </div>
+                </div>
+
+                <div class="hidden lg:flex items-center text-[11px] text-charcoal-subtle space-x-2">
+                    <span id="currentDate">Terça-feira, 29 de Setembro</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Logo Block -->
+        <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+
+            <div class="hidden md:flex items-center space-x-6 text-xs font-semibold tracking-wider text-charcoal-muted uppercase">
+                <a href="#imoveis-shortstay" class="hover:text-gold transition-colors">Imóveis</a>
+                <a href="#consorcio-wealth" class="hover:text-gold transition-colors">Consórcio Smart</a>
+                <a href="#protecao-saude" class="hover:text-gold transition-colors">Seguros &amp; Sucessão</a>
+            </div>
+
+            <!-- Brand Title -->
+            <div class="text-center mx-auto md:mx-0">
+                <a href="#" class="inline-block group">
+                    <div class="flex items-center justify-center space-x-2 mb-1">
+                        <span class="h-[1px] w-6 bg-gold"></span>
+                        <span class="text-[10px] font-extrabold tracking-[0.35em] text-gold uppercase">BY MCM CAPITAL ASSESSORIA</span>
+                        <span class="h-[1px] w-6 bg-gold"></span>
+                    </div>
+                    <h1 class="font-serif text-3xl md:text-5xl font-bold tracking-tight text-charcoal group-hover:opacity-90 transition-opacity">
+                        MCM JOURNAL
+                    </h1>
+                </a>
+            </div>
+
+            <!-- Quick Action Button -->
+            <div class="flex items-center space-x-3">
+                <button onclick="openAdvisoryModal()" class="bg-charcoal hover:bg-gold text-white px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-sm flex items-center space-x-2">
+                    <i class="fa-solid fa-headset text-gold"></i>
+                    <span class="hidden sm:inline">Falar com Assessoria MCM</span>
+                    <span class="sm:hidden">Assessoria</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Navigation Categories -->
+        <nav class="border-t border-charcoal-100">
+            <div class="max-w-7xl mx-auto px-6 flex items-center justify-between overflow-x-auto no-scrollbar">
+                <div class="flex items-center space-x-8 text-xs font-bold uppercase tracking-wider py-3.5 shrink-0" id="categoryNav">
+                    <button onclick="filterCategory('todos', this)" class="category-btn active-cat text-charcoal-muted pb-0.5">Todos</button>
+                    <button onclick="filterCategory('imoveis', this)" class="category-btn text-charcoal-muted hover:text-gold transition-colors">Imóveis &amp; Short Stay</button>
+                    <button onclick="filterCategory('consorcio', this)" class="category-btn text-charcoal-muted hover:text-gold transition-colors">Alavancagem &amp; Consórcio</button>
+                    <button onclick="filterCategory('protecao', this)" class="category-btn text-charcoal-muted hover:text-gold transition-colors">Seguro de Vida &amp; Saúde Executiva</button>
+                    <button onclick="filterCategory('lifestyle', this)" class="category-btn text-charcoal-muted hover:text-gold transition-colors">Lifestyle &amp; Tênis de Luxo</button>
+                    <button onclick="filterCategory('cases', this)" class="category-btn text-charcoal-muted hover:text-gold transition-colors">Cases de Sucesso MCM</button>
+                </div>
+
+                <div class="hidden xl:flex items-center space-x-2 text-xs font-semibold text-gold py-3 pl-6 border-l border-charcoal-100">
+                    <i class="fa-solid fa-shield-halved text-xs"></i>
+                    <span>Soluções MCM Capital</span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- STICKY ADVISORY BANNER -->
+    <div class="bg-gradient-to-r from-charcoal via-charcoal-800 to-charcoal text-white py-3.5 px-6 border-b border-gold/30 shadow-md">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3 text-xs">
+            <div class="flex items-center space-x-3 text-center md:text-left">
+                <span class="bg-gold/20 text-gold font-bold px-3 py-1 rounded-full text-[10px] uppercase border border-gold/40 shrink-0">
+                    Assessoria VIP MCM
+                </span>
+                <p class="font-light text-sand-100">
+                    Quer multiplicar seu patrimônio com <strong class="text-white font-semibold">Short Stay de Luxo</strong> ou adquirir imóveis com <strong class="text-gold font-semibold">Consórcio Estruturado</strong>?
+                </p>
+            </div>
+            <div class="flex items-center space-x-4 shrink-0">
+                <button onclick="openAdvisoryModal('Diagnóstico Geral MCM')" class="text-gold hover:underline font-bold tracking-wider uppercase text-[11px] flex items-center space-x-1">
+                    <span>Agendar Sessão Estratégica Gratuita</span>
+                    <i class="fa-solid fa-chevron-right text-[9px]"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main class="flex-1 max-w-7xl mx-auto px-6 py-10 w-full space-y-20">
+
+        <!-- HERO SECTION: SHORT STAY & REAL ESTATE FEATURE -->
+        <section data-cat-item data-cat="imoveis" class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
+
+            <!-- Lead Story (Cols 8) -->
+            <div class="lg:col-span-8 group cursor-pointer flex flex-col justify-between" onclick="openArticleModal('hero-article')">
+                <div>
+                    <div class="relative rounded-3xl overflow-hidden shadow-soft-xl img-zoom-container mb-6 aspect-[16/9]">
+                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1600&auto=format&fit=crop" alt="Apartamento de luxo para short stay" class="w-full h-full object-cover" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-charcoal/90 via-charcoal/20 to-transparent"></div>
+
+                        <div class="absolute top-6 left-6 flex space-x-2">
+                            <span class="glass-badge text-charcoal font-extrabold text-[10px] tracking-widest uppercase px-3.5 py-1.5 rounded-full border border-white/50 shadow-sm">
+                                ESTUDO DE MERCADO MCM
+                            </span>
+                            <span class="bg-gold text-white font-bold text-[10px] tracking-widest uppercase px-3.5 py-1.5 rounded-full shadow-sm">
+                                YIELD DE ATÉ 16% A.A.
+                            </span>
+                        </div>
+
+                        <div class="absolute bottom-8 left-8 right-8 text-white">
+                            <div class="flex items-center space-x-3 text-gold text-xs font-bold uppercase tracking-wider mb-2">
+                                <span>Imóveis de Luxo &amp; Short Stay</span>
+                                <span>•</span>
+                                <span class="text-sand-100 font-normal">Leitura: 6 min</span>
+                            </div>
+                            <h2 class="font-serif text-3xl md:text-5xl font-bold leading-tight text-white mb-3 group-hover:text-gold-100 transition-colors">
+                                Short Stay High-Yield: Como o Airbnb de Altíssimo Padrão Virou a Tese Preferida de Family Offices em SP e Alphaville
+                            </h2>
+                        </div>
+                    </div>
+
+                    <p class="text-charcoal-muted text-base md:text-lg leading-relaxed font-light mb-4">
+                        Com rentabilidade média mais que dobrada frente aos aluguéis tradicionais, a gestão de ativos imobiliários focada em estadias curtas de luxo atrai investidores em busca de proteção cambial, fluxo de caixa previsível e valorização patrimonial.
+                    </p>
+                </div>
+
+                <div class="flex items-center justify-between text-xs text-charcoal-subtle pt-4 border-t border-sand-200">
+                    <div class="flex items-center space-x-3">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=120&auto=format&fit=crop" class="w-9 h-9 rounded-full object-cover border border-gold" alt="Especialista MCM" loading="lazy">
+                        <div>
+                            <span class="font-bold text-charcoal block">Por Henrique MCM</span>
+                            <span class="text-[10px]">Head de Estruturação Imobiliária</span>
+                        </div>
+                    </div>
+                    <span class="text-gold font-bold uppercase tracking-wider group-hover:translate-x-1 transition-transform">Ler Análise Completa <i class="fa-solid fa-arrow-right text-[10px] ml-1"></i></span>
+                </div>
+            </div>
+
+            <!-- Essential Column (Cols 4) -->
+            <div class="lg:col-span-4 bg-sand-50 p-8 rounded-3xl border border-sand-200 flex flex-col justify-between shadow-soft-lg">
+                <div>
+                    <div class="flex items-center justify-between pb-4 border-b border-sand-200 mb-6">
+                        <h3 class="font-serif text-2xl font-bold text-charcoal">
+                            Destaques das Soluções
+                        </h3>
+                        <span class="text-[10px] font-extrabold uppercase tracking-widest text-gold bg-gold-50 px-2.5 py-1 rounded-full border border-gold-200">
+                            MCM Capital
+                        </span>
+                    </div>
+
+                    <div class="space-y-6">
+
+                        <!-- Item 01 -->
+                        <div class="group cursor-pointer border-b border-sand-200/80 pb-4" onclick="openArticleModal('consorcio-1')">
+                            <span class="text-[10px] font-extrabold text-gold uppercase tracking-wider block mb-1">CONSÓRCIO ESTRUTURADO</span>
+                            <h4 class="font-serif text-lg font-bold text-charcoal group-hover:text-gold transition-colors leading-snug">
+                                Como adquirir imóveis de R$ 5 Milhões pagando metade da taxa dos financiamentos tradicionais
+                            </h4>
+                            <p class="text-xs text-charcoal-muted mt-1 font-light line-clamp-2">A alavancagem inteligente que permite montar portfólios patrimoniais sem descapitalizar a empresa.</p>
+                        </div>
+
+                        <!-- Item 02 -->
+                        <div class="group cursor-pointer border-b border-sand-200/80 pb-4" onclick="openArticleModal('seguro-1')">
+                            <span class="text-[10px] font-extrabold text-gold uppercase tracking-wider block mb-1">SEGURO DE VIDA &amp; SUCESSÃO</span>
+                            <h4 class="font-serif text-lg font-bold text-charcoal group-hover:text-gold transition-colors leading-snug">
+                                Proteção Sucessória Offshore: Como garantir liquidez imediata para herdeiros sem inventário
+                            </h4>
+                            <p class="text-xs text-charcoal-muted mt-1 font-light line-clamp-2">Apólices em dólar com estruturação em trusts e blindagem de patrimônio familiar.</p>
+                        </div>
+
+                        <!-- Item 03 -->
+                        <div class="group cursor-pointer" onclick="openArticleModal('saude-1')">
+                            <span class="text-[10px] font-extrabold text-gold uppercase tracking-wider block mb-1">EXECUTIVE HEALTH</span>
+                            <h4 class="font-serif text-lg font-bold text-charcoal group-hover:text-gold transition-colors leading-snug">
+                                Planos de Saúde Premium para Sócios e C-Level com Cobertura Internacional Albert Einstein e Sírio
+                            </h4>
+                            <p class="text-xs text-charcoal-muted mt-1 font-light line-clamp-2">Gestão corporativa de saúde focada em grandes executivos e retenção de talentos chave.</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Callout Box to Advisor -->
+                <div class="pt-6 mt-6 border-t border-sand-200">
+                    <div class="bg-white p-5 rounded-2xl border border-gold/30 shadow-sm space-y-3">
+                        <div class="flex items-center space-x-2 text-gold">
+                            <i class="fa-solid fa-calculator text-sm"></i>
+                            <span class="text-xs font-bold uppercase tracking-wider">Simulador MCM</span>
+                        </div>
+                        <p class="text-xs font-semibold text-charcoal">
+                            Calcule a economia em taxas ao optar pelo Consórcio da MCM Capital para seu novo ativo.
+                        </p>
+                        <button onclick="scrollToCalculator()" class="w-full py-2.5 bg-gold hover:bg-gold-dark text-white rounded-xl text-xs font-bold uppercase tracking-wider transition-colors shadow-sm text-center block">
+                            Acessar Simulador de Economia
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- SECTION 2: INTERACTIVE FINANCIAL SIMULATOR WIDGET -->
+        <section id="simulador" class="bg-sand-50 rounded-3xl p-8 md:p-12 border border-sand-200 shadow-soft-lg space-y-8">
+            <div class="text-center max-w-3xl mx-auto space-y-3">
+                <span class="text-gold text-xs font-extrabold uppercase tracking-widest bg-gold-50 px-3 py-1 rounded-full border border-gold-200 inline-block">
+                    Ferramenta Interativa Privada
+                </span>
+                <h3 class="font-serif text-3xl md:text-4xl font-bold text-charcoal">
+                    Simulador de Alavancagem e Proteção MCM Capital
+                </h3>
+                <p class="text-charcoal-muted text-sm font-light">
+                    Selecione o seu objetivo patrimonial abaixo e compare as projeções de rentabilidade e alavancagem inteligente com nossos especialistas.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-white p-6 md:p-8 rounded-2xl border border-sand-200">
+
+                <!-- Calculator Inputs (Cols 7) -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div>
+                        <label class="block text-xs font-bold uppercase text-charcoal mb-2">1. Selecione o Objetivo Estratégico:</label>
+                        <select id="simGoal" onchange="calculateSimulatedResults()" class="w-full bg-sand-50 border border-sand-200 rounded-xl p-3 text-xs font-semibold text-charcoal focus:outline-none focus:border-gold">
+                            <option value="shortstay">Imóvel para Airbnb / Short Stay High-Yield (Rentabilidade Mensal)</option>
+                            <option value="consorcio">Consórcio de Alto Padrão (Compra sem Juros Bancários)</option>
+                            <option value="protecao">Seguro de Vida &amp; Blindagem Sucessória em Dólar</option>
+                            <option value="saude">Plano de Saúde Executivo de Alta Cobertura</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <label class="text-xs font-bold uppercase text-charcoal">2. Valor Pretendido do Ativo ou Apólice:</label>
+                            <span id="simValueDisplay" class="font-mono text-gold-dark font-bold text-sm">R$ 3.000.000</span>
+                        </div>
+                        <input type="range" id="simValue" min="500000" max="20000000" step="500000" value="3000000" oninput="calculateSimulatedResults()" class="w-full accent-gold bg-sand-100 h-2 rounded-lg cursor-pointer">
+                        <div class="flex justify-between text-[10px] text-charcoal-subtle font-mono mt-1">
+                            <span>R$ 500 mil</span>
+                            <span>R$ 10 Milhões</span>
+                            <span>R$ 20+ Milhões</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold uppercase text-charcoal mb-2">3. Prazo Desejado de Estruturação:</label>
+                        <div class="grid grid-cols-3 gap-3" id="termButtons">
+                            <button type="button" onclick="setSimTerm(36, this)" class="term-btn py-2.5 rounded-xl border border-sand-200 text-xs font-bold text-charcoal hover:border-gold hover:text-gold transition-colors">36 Meses</button>
+                            <button type="button" onclick="setSimTerm(72, this)" class="term-btn active-term py-2.5 rounded-xl border border-sand-200 text-xs font-bold text-charcoal hover:border-gold hover:text-gold transition-colors">72 Meses</button>
+                            <button type="button" onclick="setSimTerm(120, this)" class="term-btn py-2.5 rounded-xl border border-sand-200 text-xs font-bold text-charcoal hover:border-gold hover:text-gold transition-colors">120 Meses</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projections & Results (Cols 5) -->
+                <div class="lg:col-span-5 bg-charcoal text-white p-8 rounded-2xl space-y-6 border border-gold/30 shadow-xl flex flex-col justify-between h-full">
+                    <div>
+                        <span class="text-[10px] font-bold text-gold uppercase tracking-widest block mb-1">PROJEÇÃO ESTIMADA MCM</span>
+                        <h4 class="font-serif text-2xl font-bold text-white mb-4" id="simResultTitle">Rentabilidade Estimada em Short Stay</h4>
+
+                        <div class="space-y-4 font-mono">
+                            <div class="flex justify-between items-center pb-2 border-b border-charcoal-muted/40">
+                                <span class="text-xs text-sand-100 font-sans" id="simMetric1Label">Retorno Mensal Estimado:</span>
+                                <span id="simMonthlyYield" class="text-emerald-400 font-bold text-lg">R$ 37.000 /mês</span>
+                            </div>
+
+                            <div class="flex justify-between items-center pb-2 border-b border-charcoal-muted/40">
+                                <span class="text-xs text-sand-100 font-sans" id="simMetric2Label">Economia x Financiamento:</span>
+                                <span id="simSavings" class="text-gold font-bold text-lg">R$ 1.120.000</span>
+                            </div>
+
+                            <div class="flex justify-between items-center">
+                                <span class="text-xs text-sand-100 font-sans">Taxa Média da Estrutura MCM:</span>
+                                <span id="simCost" class="text-white font-bold text-sm">1.6% a.a.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-6 border-t border-charcoal-muted/50 space-y-3">
+                        <button onclick="requestFeasibilityStudy()" class="w-full py-3.5 bg-gold hover:bg-gold-dark text-white rounded-xl text-xs font-bold uppercase tracking-wider transition-all shadow-gold-glow flex items-center justify-center space-x-2">
+                            <i class="fa-solid fa-paper-plane"></i>
+                            <span>Solicitar Estudo de Viabilidade MCM</span>
+                        </button>
+                        <p class="text-[9px] text-center text-charcoal-subtle">
+                            Estudo gratuito, confidencial e elaborado por um planejador financeiro certificado.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECTION 3: REAL ESTATE & SHORT STAY (AIRBNB HIGH-YIELD) -->
+        <section id="imoveis-shortstay" data-cat-item data-cat="imoveis" class="space-y-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between border-b border-sand-200 pb-4">
+                <div>
+                    <span class="text-gold text-xs font-extrabold uppercase tracking-widest block mb-1">Estratégia Imobiliária de Alto Padrão</span>
+                    <h3 class="font-serif text-3xl md:text-4xl font-bold text-charcoal">Imóveis de Luxo &amp; Short Stay High-Yield</h3>
+                </div>
+                <button onclick="openAdvisoryModal('Assessoria Imobiliária MCM')" class="text-xs font-bold uppercase tracking-wider text-gold hover:underline mt-2 md:mt-0">
+                    Consultar Carteira de Imóveis Off-Market MCM <i class="fa-solid fa-arrow-right ml-1"></i>
+                </button>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+                <!-- Card 1: Alphaville & Short Stay -->
+                <div class="bg-white rounded-3xl overflow-hidden border border-sand-200 shadow-soft-lg hover:shadow-soft-xl transition-all group cursor-pointer flex flex-col justify-between" onclick="openArticleModal('prop-alphaville')">
+                    <div>
+                        <div class="relative h-64 img-zoom-container">
+                            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover" alt="Casas Alphaville Short Stay" loading="lazy">
+                            <span class="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-extrabold text-charcoal uppercase tracking-wider shadow-sm">
+                                Alphaville &amp; Tamboré
+                            </span>
+                        </div>
+                        <div class="p-6 space-y-3">
+                            <span class="text-[10px] font-bold text-gold uppercase tracking-wider">RETORNO ESTIMADO: 15.2% A.A.</span>
+                            <h4 class="font-serif text-2xl font-bold text-charcoal group-hover:text-gold transition-colors leading-snug">
+                                Casas de Condomínio Fechado Preparadas para Locação Executiva e Eventos Corporativos
+                            </h4>
+                            <p class="text-charcoal-muted text-xs font-light leading-relaxed">
+                                Descubra como a MCM gerencia e rentabiliza residências de altíssimo padrão com público corporativo de multinacionais sem desgaste imobiliário.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0 border-t border-sand-100 flex justify-between items-center text-xs">
+                        <span class="font-mono font-bold text-charcoal">Ativos a partir de R$ 4.5M</span>
+                        <span class="text-gold font-bold">Ver Case <i class="fa-solid fa-arrow-right text-[10px]"></i></span>
+                    </div>
+                </div>
+
+                <!-- Card 2: Studios Prime SP -->
+                <div class="bg-white rounded-3xl overflow-hidden border border-sand-200 shadow-soft-lg hover:shadow-soft-xl transition-all group cursor-pointer flex flex-col justify-between" onclick="openArticleModal('prop-sp-prime')">
+                    <div>
+                        <div class="relative h-64 img-zoom-container">
+                            <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover" alt="Apartamento Itaim Bibi" loading="lazy">
+                            <span class="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-extrabold text-charcoal uppercase tracking-wider shadow-sm">
+                                Itaim Bibi &amp; Jardins
+                            </span>
+                        </div>
+                        <div class="p-6 space-y-3">
+                            <span class="text-[10px] font-bold text-gold uppercase tracking-wider">TAXA DE OCUPAÇÃO: 82%</span>
+                            <h4 class="font-serif text-2xl font-bold text-charcoal group-hover:text-gold transition-colors leading-snug">
+                                Studios e Compactos de Luxo: A Receita Certa para Ocupação Máxima em São Paulo
+                            </h4>
+                            <p class="text-charcoal-muted text-xs font-light leading-relaxed">
+                                Estruturação completa com design autoral, automação e gestão 100% remota com relatórios de repasse mensal pela equipe MCM.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0 border-t border-sand-100 flex justify-between items-center text-xs">
+                        <span class="font-mono font-bold text-charcoal">Ativos a partir de R$ 1.2M</span>
+                        <span class="text-gold font-bold">Ver Case <i class="fa-solid fa-arrow-right text-[10px]"></i></span>
+                    </div>
+                </div>
+
+                <!-- Card 3: Casa de Praia Trancoso/Búzios -->
+                <div class="bg-white rounded-3xl overflow-hidden border border-sand-200 shadow-soft-lg hover:shadow-soft-xl transition-all group cursor-pointer flex flex-col justify-between" onclick="openArticleModal('prop-trancoso')">
+                    <div>
+                        <div class="relative h-64 img-zoom-container">
+                            <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover" alt="Villa em Trancoso" loading="lazy">
+                            <span class="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-extrabold text-charcoal uppercase tracking-wider shadow-sm">
+                                Destinos Internacionais &amp; Praia
+                            </span>
+                        </div>
+                        <div class="p-6 space-y-3">
+                            <span class="text-[10px] font-bold text-gold uppercase tracking-wider">DIÁRIAS DE R$ 8.000 A R$ 25.000</span>
+                            <h4 class="font-serif text-2xl font-bold text-charcoal group-hover:text-gold transition-colors leading-snug">
+                                Villas de Alto Luxo no Litoral: A Tendência dos "Ultra-Rich Vacation Rentals"
+                            </h4>
+                            <p class="text-charcoal-muted text-xs font-light leading-relaxed">
+                                Como imóveis de veraneio deixaram de ser ativos passivos de custo para se tornarem máquinas geradoras de dividendos.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0 border-t border-sand-100 flex justify-between items-center text-xs">
+                        <span class="font-mono font-bold text-charcoal">Ativos a partir de R$ 8.0M</span>
+                        <span class="text-gold font-bold">Ver Case <i class="fa-solid fa-arrow-right text-[10px]"></i></span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECTION 4: FINANCIAL SOLUTIONS & SMART CONSÓRCIO LEVERAGE -->
+        <section id="consorcio-wealth" data-cat-item data-cat="consorcio" class="bg-charcoal text-white rounded-3xl p-8 md:p-14 relative overflow-hidden shadow-soft-xl border border-gold/30">
+            <div class="absolute right-0 top-0 opacity-5 pointer-events-none translate-x-10 -translate-y-10">
+                <i class="fa-solid fa-coins text-[350px]"></i>
+            </div>
+
+            <div class="max-w-3xl relative z-10 space-y-6">
+                <div class="inline-flex items-center space-x-2 border border-gold/40 px-3.5 py-1 rounded-full text-gold text-[10px] font-extrabold tracking-widest uppercase">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <span>Soluções de Crédito e Alavancagem MCM</span>
+                </div>
+
+                <h3 class="font-serif text-3xl md:text-5xl font-bold leading-tight text-white">
+                    Consórcio Imobiliário de Luxo: A Estratégia dos Grandes Investidores para Comprar sem Pagar Juros
+                </h3>
+
+                <p class="text-sand-100 text-sm md:text-base font-light leading-relaxed">
+                    Esqueça o consórcio tradicional para pessoa física. Na MCM Capital, estruturamos grupos de consórcio corporativo de alta renda como estratégia de alavancagem de capital, lance embutido e composição de caixa sem os custos abusivos de financiamentos imobiliários.
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2 text-xs">
+                    <div class="bg-charcoal-800/80 p-4 rounded-xl border border-gold/20">
+                        <span class="text-gold font-mono font-bold text-lg block">1.8% a 2.2% a.a.</span>
+                        <span class="text-sand-100 text-[11px]">Custo total médio aproximado frente aos 12% a.a. dos bancos.</span>
+                    </div>
+                    <div class="bg-charcoal-800/80 p-4 rounded-xl border border-gold/20">
+                        <span class="text-gold font-mono font-bold text-lg block">Alavancagem de Lance</span>
+                        <span class="text-sand-100 text-[11px]">Uso da própria carta para contemplação rápida do ativo.</span>
+                    </div>
+                    <div class="bg-charcoal-800/80 p-4 rounded-xl border border-gold/20">
+                        <span class="text-gold font-mono font-bold text-lg block">Proteção Fiscal</span>
+                        <span class="text-sand-100 text-[11px]">Planejamento tributário eficiente para compra de frota, jatos e imóveis.</span>
+                    </div>
+                </div>
+
+                <div class="pt-4 flex flex-col sm:flex-row items-center space-y-3 sm:space-y-0 sm:space-x-4">
+                    <button onclick="openAdvisoryModal('Estruturação de Consórcio MCM')" class="w-full sm:w-auto bg-gold hover:bg-gold-dark text-white px-8 py-3.5 rounded-xl font-bold text-xs uppercase tracking-wider transition-all shadow-gold-glow">
+                        Falar com Especialista em Consórcio MCM
+                    </button>
+                    <a href="#simulador" class="text-xs font-bold text-sand-100 hover:text-gold transition-colors underline">
+                        Simular com Valor do Meu Ativo <i class="fa-solid fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: PROTECTION & EXECUTIVE HEALTH -->
+        <section id="protecao-saude" data-cat-item data-cat="protecao" class="space-y-8">
+            <div class="flex justify-between items-end border-b border-sand-200 pb-4">
+                <div>
+                    <span class="text-gold text-xs font-extrabold uppercase tracking-widest block mb-1">Preservação Patrimonial &amp; Saúde C-Level</span>
+                    <h3 class="font-serif text-3xl md:text-4xl font-bold text-charcoal">Proteção Familiar &amp; Seguro Saúde Executivo</h3>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+                <!-- Card Life Insurance & Succession -->
+                <div class="bg-sand-50 p-8 rounded-3xl border border-sand-200 hover:border-gold transition-all group cursor-pointer flex flex-col justify-between" onclick="openArticleModal('seguro-detalhes')">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-2xl bg-gold/10 border border-gold/30 flex items-center justify-center text-gold text-xl">
+                            <i class="fa-solid fa-shield-heart"></i>
+                        </div>
+                        <span class="text-[10px] font-extrabold text-gold uppercase tracking-wider block">PLANEJAMENTO SUCESSÓRIO &amp; SEGURO DE VIDA</span>
+                        <h4 class="font-serif text-2xl font-bold text-charcoal group-hover:text-gold transition-colors">
+                            Seguro de Vida High-Net-Worth: A ferramenta ideal para garantir liquidez e cobrir ITCMD sem vender patrimônio
+                        </h4>
+                        <p class="text-charcoal-muted text-sm font-light leading-relaxed">
+                            A morte imprevista de um fundador de empresa pode congelar bens e exigir liquidação de imóveis a preço de saldo para pagar impostos. Entenda como as apólices de vida internacionais da MCM blindam e liquidam despesas de inventário.
+                        </p>
+                    </div>
+
+                    <div class="pt-6 mt-6 border-t border-sand-200 flex justify-between items-center text-xs font-bold text-gold">
+                        <span>Ver Opções de Apólices Internacionais</span>
+                        <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                </div>
+
+                <!-- Card Executive Health Insurance -->
+                <div class="bg-sand-50 p-8 rounded-3xl border border-sand-200 hover:border-gold transition-all group cursor-pointer flex flex-col justify-between" onclick="openArticleModal('saude-detalhes')">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-2xl bg-gold/10 border border-gold/30 flex items-center justify-center text-gold text-xl">
+                            <i class="fa-solid fa-user-doctor"></i>
+                        </div>
+                        <span class="text-[10px] font-extrabold text-gold uppercase tracking-wider block">SAÚDE EXECUTIVA &amp; CORPORATIVA</span>
+                        <h4 class="font-serif text-2xl font-bold text-charcoal group-hover:text-gold transition-colors">
+                            Gestão de Seguro Saúde para Grupos C-Level: Reembolso ilimitado e hospitais de ponta
+                        </h4>
+                        <p class="text-charcoal-muted text-sm font-light leading-relaxed">
+                            Uma consultoria personalizada para diretores, herdeiros e grandes empresários. Acesso aos melhores corpos clínicos do Brasil e do exterior (Einstein, Sírio-Libanês, Mayo Clinic) com condições exclusivas e estipulação corporativa MCM.
+                        </p>
+                    </div>
+
+                    <div class="pt-6 mt-6 border-t border-sand-200 flex justify-between items-center text-xs font-bold text-gold">
+                        <span>Solicitar Estudo de Seguro Saúde Executivo</span>
+                        <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECTION 6: LUXURY LIFESTYLE, TENNIS & COLLECTIBLES -->
+        <section id="lifestyle" data-cat-item data-cat="lifestyle" class="space-y-8">
+            <div class="flex justify-between items-end border-b border-sand-200 pb-4">
+                <div>
+                    <span class="text-gold text-xs font-extrabold uppercase tracking-widest block mb-1">Cultura, Esporte Nobre &amp; Networking</span>
+                    <h3 class="font-serif text-3xl md:text-4xl font-bold text-charcoal">Lifestyle &amp; Tênis de Luxo</h3>
+                </div>
+                <span class="text-xs text-charcoal-subtle hidden md:block">Curadoria Exclusiva para Clientes MCM</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+
+                <!-- Main Article Tennis (Cols 7) -->
+                <div class="md:col-span-7 group cursor-pointer space-y-4" onclick="openArticleModal('tenis-article')">
+                    <div class="relative rounded-3xl overflow-hidden img-zoom-container shadow-soft-lg aspect-[16/10]">
+                        <img src="https://images.unsplash.com/photo-1595435934249-5df7ed86e1c0?q=80&w=1200&auto=format&fit=crop" class="w-full h-full object-cover" alt="Tênis de Luxo e Roland Garros" loading="lazy">
+                        <span class="absolute top-4 left-4 glass-badge text-charcoal font-extrabold text-[10px] uppercase tracking-wider px-3.5 py-1 rounded-full border border-white">
+                            ESPORTE DE ELITE &amp; NETWORKING
+                        </span>
+                    </div>
+                    <span class="text-[10px] font-bold text-gold uppercase tracking-wider">CIRCUITO MUNDIAL DE TÊNIS</span>
+                    <h4 class="font-serif text-2xl md:text-3xl font-bold text-charcoal group-hover:text-gold transition-colors leading-snug">
+                        Tênis de Luxo e os Grandes Torneios: Por Que as Quadras de Saibro e Grama se Tornaram o Novo Hub dos Negócios Bilionários
+                    </h4>
+                    <p class="text-charcoal-muted text-sm font-light leading-relaxed">
+                        De Roland Garros aos clubes fechados em São Paulo e Nova York, a paixão pelo tênis une grandes tomadores de decisão. Veja como a MCM conecta clientes em experiências esportivas exclusivas e camarotes VIP nos Grand Slams.
+                    </p>
+                </div>
+
+                <!-- Secondary Lifestyle Items (Cols 5) -->
+                <div class="md:col-span-5 space-y-6">
+
+                    <!-- Item Watch Collectibles -->
+                    <div class="bg-sand-50 p-5 rounded-2xl border border-sand-200 hover:bg-white hover:shadow-soft-lg transition-all group cursor-pointer flex space-x-4 items-center" onclick="openArticleModal('watches-article')">
+                        <div class="w-24 h-24 rounded-xl overflow-hidden shrink-0 img-zoom-container">
+                            <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover" alt="Relógios de luxo" loading="lazy">
+                        </div>
+                        <div>
+                            <span class="text-[9px] font-bold text-gold uppercase tracking-widest">ALTA HORLOGERIE</span>
+                            <h5 class="font-serif text-base font-bold text-charcoal group-hover:text-gold transition-colors leading-snug">
+                                Alta Relojoaria Suíça: Ativos vestíveis que superaram a inflação em 10 anos
+                            </h5>
+                            <span class="text-xs text-charcoal-subtle block mt-1">Alta Relojoaria como Ativo</span>
+                        </div>
+                    </div>
+
+                    <!-- Item Yachts & Aviation -->
+                    <div class="bg-sand-50 p-5 rounded-2xl border border-sand-200 hover:bg-white hover:shadow-soft-lg transition-all group cursor-pointer flex space-x-4 items-center" onclick="openArticleModal('yacht-article')">
+                        <div class="w-24 h-24 rounded-xl overflow-hidden shrink-0 img-zoom-container">
+                            <img src="https://images.unsplash.com/photo-1569263979104-865ab7cd8d13?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover" alt="Iates de Luxo" loading="lazy">
+                        </div>
+                        <div>
+                            <span class="text-[9px] font-bold text-gold uppercase tracking-widest">AVIAÇÃO &amp; NÁUTICA</span>
+                            <h5 class="font-serif text-base font-bold text-charcoal group-hover:text-gold transition-colors leading-snug">
+                                Estruturação de Cotas de Propriedade Compartilhada para Iates e Jatos Executivos
+                            </h5>
+                            <span class="text-xs text-charcoal-subtle block mt-1">Eficiência de Uso</span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECTION 7: SUCCESS CASES & MCM ADVISORY PROOF -->
+        <section id="cases" data-cat-item data-cat="cases" class="bg-sand-50 rounded-3xl p-8 md:p-12 border border-sand-200 space-y-8">
+            <div class="text-center max-w-2xl mx-auto space-y-2">
+                <span class="text-gold text-xs font-extrabold uppercase tracking-widest">Casos Práticos MCM Capital</span>
+                <h3 class="font-serif text-3xl font-bold text-charcoal">Histórias Reais de Sucesso Patrimonial</h3>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+                <!-- Case 1 -->
+                <div class="bg-white p-6 rounded-2xl border border-sand-200 shadow-sm space-y-4">
+                    <div class="flex items-center space-x-2 text-gold">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <h4 class="font-serif text-lg font-bold text-charcoal">"Aquisição de 4 Studios de Luxo via Consórcio em SP"</h4>
+                    <p class="text-xs text-charcoal-muted leading-relaxed font-light">
+                        "Com a orientação da assessoria da MCM Capital, utilizamos consórcio alavancado para arrematar 4 unidades no Itaim Bibi. Hoje o Short Stay paga a parcela do consórcio e sobra fluxo de caixa positivo."
+                    </p>
+                    <div class="pt-2 border-t border-sand-100 flex justify-between items-center text-[10px] text-charcoal-subtle">
+                        <span class="font-bold text-charcoal">Sócio de Construtora • SP</span>
+                        <span class="text-gold font-mono font-bold">Portfólio R$ 6.8M</span>
+                    </div>
+                </div>
+
+                <!-- Case 2 -->
+                <div class="bg-white p-6 rounded-2xl border border-sand-200 shadow-sm space-y-4">
+                    <div class="flex items-center space-x-2 text-gold">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <h4 class="font-serif text-lg font-bold text-charcoal">"Planejamento Sucessório sem Congelamento de Bens"</h4>
+                    <p class="text-xs text-charcoal-muted leading-relaxed font-light">
+                        "A MCM estruturou apólices de seguro de vida resgatável e saúde internacional para os diretores da nossa holding familiar. Quando precisamos de suporte emergencial no exterior, a cobertura foi imediata."
+                    </p>
+                    <div class="pt-2 border-t border-sand-100 flex justify-between items-center text-[10px] text-charcoal-subtle">
+                        <span class="font-bold text-charcoal">Empresário do Agronegócio</span>
+                        <span class="text-gold font-mono font-bold">Holding Familiar</span>
+                    </div>
+                </div>
+
+                <!-- Case 3 -->
+                <div class="bg-white p-6 rounded-2xl border border-sand-200 shadow-sm space-y-4">
+                    <div class="flex items-center space-x-2 text-gold">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+                    <h4 class="font-serif text-lg font-bold text-charcoal">"Villa em Trancoso Pagando as Próprias Contas"</h4>
+                    <p class="text-xs text-charcoal-muted leading-relaxed font-light">
+                        "Compramos a casa de praia pensando só em uso familiar. A MCM estruturou a gestão de temporada e hoje o imóvel gera retorno superior ao de muitos fundos imobiliários, mesmo com uso pessoal garantido nas férias."
+                    </p>
+                    <div class="pt-2 border-t border-sand-100 flex justify-between items-center text-[10px] text-charcoal-subtle">
+                        <span class="font-bold text-charcoal">Diretora Executiva • Multinacional</span>
+                        <span class="text-gold font-mono font-bold">Ativo R$ 9.4M</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- NEWSLETTER SECTION -->
+        <section class="bg-charcoal text-white rounded-3xl p-8 md:p-14 text-center space-y-6 border border-gold/30">
+            <span class="text-gold text-xs font-extrabold uppercase tracking-widest">MCM Journal na sua caixa de entrada</span>
+            <h3 class="font-serif text-3xl md:text-4xl font-bold max-w-2xl mx-auto">Receba análises exclusivas de mercado, imóveis off-market e oportunidades de alavancagem patrimonial</h3>
+            <form id="newsletterForm" onsubmit="handleNewsletterSubmit(event)" class="max-w-md mx-auto flex flex-col sm:flex-row gap-3 pt-2">
+                <input type="email" required placeholder="Seu melhor e-mail" class="flex-1 bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-sm text-white placeholder:text-sand-100/60 focus:outline-none focus:border-gold">
+                <button type="submit" class="bg-gold hover:bg-gold-dark text-white px-6 py-3 rounded-xl text-xs font-bold uppercase tracking-wider transition-colors shrink-0">Assinar Gratuitamente</button>
+            </form>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-sand-50 border-t border-sand-200 mt-10">
+        <div class="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-4 gap-10 text-sm">
+            <div class="space-y-3 md:col-span-2">
+                <h5 class="font-serif text-2xl font-bold text-charcoal">MCM JOURNAL</h5>
+                <p class="text-charcoal-muted text-xs font-light leading-relaxed max-w-sm">
+                    Um veículo editorial da MCM Capital Assessoria com inteligência sobre imóveis de alto padrão, alavancagem patrimonial, proteção familiar e lifestyle para clientes exigentes.
+                </p>
+            </div>
+            <div class="space-y-3">
+                <h6 class="text-xs font-extrabold uppercase tracking-wider text-charcoal">Soluções</h6>
+                <ul class="space-y-2 text-xs text-charcoal-muted">
+                    <li><a href="#imoveis-shortstay" class="hover:text-gold">Imóveis &amp; Short Stay</a></li>
+                    <li><a href="#consorcio-wealth" class="hover:text-gold">Consórcio Estruturado</a></li>
+                    <li><a href="#protecao-saude" class="hover:text-gold">Seguro &amp; Saúde Executiva</a></li>
+                    <li><a href="#lifestyle" class="hover:text-gold">Lifestyle</a></li>
+                </ul>
+            </div>
+            <div class="space-y-3">
+                <h6 class="text-xs font-extrabold uppercase tracking-wider text-charcoal">Fale com a MCM</h6>
+                <ul class="space-y-2 text-xs text-charcoal-muted">
+                    <li><button onclick="openAdvisoryModal()" class="hover:text-gold text-left">Assessoria Personalizada</button></li>
+                    <li><a href="#" class="hover:text-gold">contato@mcmcapital.com.br</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-sand-200 py-5 text-center text-[10px] text-charcoal-subtle px-6">
+            © <span id="footerYear"></span> MCM Capital Assessoria. Conteúdo editorial com fins informativos, sem caráter de recomendação de investimento.
+        </div>
+    </footer>
+
+    <!-- ARTICLE MODAL -->
+    <div id="articleModal" data-modal class="fixed inset-0 z-50 items-center justify-center p-4 bg-charcoal/70 backdrop-blur-sm">
+        <div class="modal-panel bg-white rounded-3xl max-w-2xl w-full max-h-[85vh] overflow-y-auto shadow-soft-xl relative">
+            <button onclick="closeModal('articleModal')" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-sand-50 hover:bg-sand-100 flex items-center justify-center text-charcoal z-10">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div id="articleModalContent" class="p-8 md:p-10 space-y-4"></div>
+        </div>
+    </div>
+
+    <!-- ADVISORY FORM MODAL -->
+    <div id="advisoryModal" data-modal class="fixed inset-0 z-50 items-center justify-center p-4 bg-charcoal/70 backdrop-blur-sm">
+        <div class="modal-panel bg-white rounded-3xl max-w-md w-full max-h-[90vh] overflow-y-auto shadow-soft-xl relative">
+            <button onclick="closeModal('advisoryModal')" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-sand-50 hover:bg-sand-100 flex items-center justify-center text-charcoal z-10">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="p-8 md:p-10 space-y-6">
+                <div class="space-y-2">
+                    <span class="text-gold text-xs font-extrabold uppercase tracking-widest">Assessoria MCM Capital</span>
+                    <h3 class="font-serif text-2xl font-bold text-charcoal" id="advisoryModalTitle">Fale com um Assessor MCM</h3>
+                    <p class="text-charcoal-muted text-xs font-light">Preencha os dados abaixo e um especialista da MCM entrará em contato em até 1 dia útil.</p>
+                </div>
+
+                <form id="advisoryForm" onsubmit="handleAdvisorySubmit(event)" class="space-y-4">
+                    <input type="hidden" id="advisoryInterest" value="Diagnóstico Geral MCM">
+                    <div>
+                        <label class="block text-[10px] font-bold uppercase text-charcoal mb-1.5">Nome Completo</label>
+                        <input type="text" required class="w-full bg-sand-50 border border-sand-200 rounded-xl p-3 text-sm focus:outline-none focus:border-gold">
+                    </div>
+                    <div>
+                        <label class="block text-[10px] font-bold uppercase text-charcoal mb-1.5">Telefone / WhatsApp</label>
+                        <input type="tel" required placeholder="(11) 99999-9999" class="w-full bg-sand-50 border border-sand-200 rounded-xl p-3 text-sm focus:outline-none focus:border-gold">
+                    </div>
+                    <div>
+                        <label class="block text-[10px] font-bold uppercase text-charcoal mb-1.5">E-mail</label>
+                        <input type="email" required class="w-full bg-sand-50 border border-sand-200 rounded-xl p-3 text-sm focus:outline-none focus:border-gold">
+                    </div>
+                    <div>
+                        <label class="block text-[10px] font-bold uppercase text-charcoal mb-1.5">Área de Interesse</label>
+                        <select id="advisoryInterestSelect" class="w-full bg-sand-50 border border-sand-200 rounded-xl p-3 text-sm focus:outline-none focus:border-gold">
+                            <option>Diagnóstico Geral MCM</option>
+                            <option>Assessoria Imobiliária MCM</option>
+                            <option>Estruturação de Consórcio MCM</option>
+                            <option>Seguro de Vida &amp; Sucessão</option>
+                            <option>Saúde Executiva</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="w-full py-3.5 bg-gold hover:bg-gold-dark text-white rounded-xl text-xs font-bold uppercase tracking-wider transition-colors shadow-gold-glow">
+                        Enviar Solicitação
+                    </button>
+                    <p class="text-[9px] text-center text-charcoal-subtle">Seus dados são confidenciais e usados apenas para contato da equipe MCM Capital.</p>
+                </form>
+
+                <div id="advisorySuccess" class="hidden text-center space-y-3 py-6">
+                    <div class="w-14 h-14 rounded-full bg-emerald-50 border border-emerald-200 flex items-center justify-center mx-auto text-emerald-600 text-2xl">
+                        <i class="fa-solid fa-check"></i>
+                    </div>
+                    <h4 class="font-serif text-xl font-bold text-charcoal">Solicitação Recebida!</h4>
+                    <p class="text-charcoal-muted text-xs font-light max-w-xs mx-auto">Obrigado. Um assessor da MCM Capital entrará em contato em breve para dar continuidade ao seu atendimento.</p>
+                    <button onclick="closeModal('advisoryModal')" class="text-gold text-xs font-bold uppercase tracking-wider hover:underline">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ---------- DATE ----------
+        (function setCurrentDate() {
+            const el = document.getElementById('currentDate');
+            const now = new Date();
+            const formatted = now.toLocaleDateString('pt-BR', { weekday: 'long', day: 'numeric', month: 'long' });
+            el.textContent = formatted.charAt(0).toUpperCase() + formatted.slice(1);
+            document.getElementById('footerYear').textContent = now.getFullYear();
+        })();
+
+        // ---------- MODAL HELPERS ----------
+        function openModal(id) {
+            document.getElementById(id).classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeModal(id) {
+            document.getElementById(id).classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        document.querySelectorAll('[data-modal]').forEach(modal => {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) closeModal(modal.id);
+            });
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('[data-modal].active').forEach(m => closeModal(m.id));
+            }
+        });
+
+        // ---------- ADVISORY MODAL ----------
+        function openAdvisoryModal(interest) {
+            const title = document.getElementById('advisoryModalTitle');
+            const select = document.getElementById('advisoryInterestSelect');
+            document.getElementById('advisoryForm').classList.remove('hidden');
+            document.getElementById('advisorySuccess').classList.add('hidden');
+            document.getElementById('advisoryForm').reset();
+            if (interest) {
+                title.textContent = interest;
+                if ([...select.options].some(o => o.value === interest)) {
+                    select.value = interest;
+                }
+            } else {
+                title.textContent = 'Fale com um Assessor MCM';
+            }
+            openModal('advisoryModal');
+        }
+
+        function handleAdvisorySubmit(event) {
+            event.preventDefault();
+            document.getElementById('advisoryForm').classList.add('hidden');
+            document.getElementById('advisorySuccess').classList.remove('hidden');
+        }
+
+        function handleNewsletterSubmit(event) {
+            event.preventDefault();
+            const form = event.target;
+            const btn = form.querySelector('button[type="submit"]');
+            const originalText = btn.textContent;
+            btn.textContent = 'Inscrito!';
+            btn.disabled = true;
+            form.reset();
+            setTimeout(() => { btn.textContent = originalText; btn.disabled = false; }, 2500);
+        }
+
+        function requestFeasibilityStudy() {
+            openAdvisoryModal('Diagnóstico Geral MCM');
+        }
+
+        // ---------- CATEGORY FILTER ----------
+        function filterCategory(cat, btn) {
+            document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active-cat'));
+            if (btn) btn.classList.add('active-cat');
+
+            document.querySelectorAll('[data-cat-item]').forEach(section => {
+                if (cat === 'todos' || section.dataset.cat === cat) {
+                    section.classList.remove('hidden-cat');
+                } else {
+                    section.classList.add('hidden-cat');
+                }
+            });
+        }
+
+        // ---------- SIMULATOR ----------
+        function formatBRL(value) {
+            return 'R$ ' + Math.round(value).toLocaleString('pt-BR');
+        }
+
+        let simTerm = 72;
+        function setSimTerm(term, btn) {
+            simTerm = term;
+            document.querySelectorAll('.term-btn').forEach(b => b.classList.remove('active-term'));
+            btn.classList.add('active-term');
+            calculateSimulatedResults();
+        }
+
+        function calculateSimulatedResults() {
+            const goal = document.getElementById('simGoal').value;
+            const value = parseFloat(document.getElementById('simValue').value);
+            document.getElementById('simValueDisplay').textContent = formatBRL(value);
+
+            const titleEl = document.getElementById('simResultTitle');
+            const label1 = document.getElementById('simMetric1Label');
+            const label2 = document.getElementById('simMetric2Label');
+            const metric1 = document.getElementById('simMonthlyYield');
+            const metric2 = document.getElementById('simSavings');
+            const cost = document.getElementById('simCost');
+
+            const bankRate = 0.12;
+            const mcmRate = 0.016 + (simTerm / 120) * 0.006;
+            const years = simTerm / 12;
+
+            if (goal === 'shortstay') {
+                titleEl.textContent = 'Rentabilidade Estimada em Short Stay';
+                label1.textContent = 'Retorno Mensal Estimado:';
+                label2.textContent = 'Retorno Anualizado (14.8% a.a.):';
+                const monthly = (value * 0.148) / 12;
+                metric1.textContent = formatBRL(monthly) + ' /mês';
+                metric1.className = 'text-emerald-400 font-bold text-lg';
+                metric2.textContent = formatBRL(value * 0.148) + ' /ano';
+                metric2.className = 'text-gold font-bold text-lg';
+                cost.textContent = 'Gestão MCM a partir de 15% da receita';
+            } else if (goal === 'consorcio') {
+                titleEl.textContent = 'Economia com Consórcio Estruturado MCM';
+                label1.textContent = 'Custo Total Estimado (MCM):';
+                label2.textContent = 'Economia x Financiamento Bancário:';
+                const mcmCost = value * mcmRate * years;
+                const bankCost = value * bankRate * years;
+                metric1.textContent = formatBRL(mcmCost);
+                metric1.className = 'text-white font-bold text-lg';
+                metric2.textContent = formatBRL(bankCost - mcmCost);
+                metric2.className = 'text-gold font-bold text-lg';
+                cost.textContent = (mcmRate * 100).toFixed(1) + '% a.a.';
+            } else if (goal === 'protecao') {
+                titleEl.textContent = 'Simulação de Proteção Sucessória';
+                label1.textContent = 'Prêmio Mensal Estimado:';
+                label2.textContent = 'Liquidez Garantida a Herdeiros:';
+                const monthlyPremium = (value * 0.006) / 12;
+                metric1.textContent = formatBRL(monthlyPremium) + ' /mês';
+                metric1.className = 'text-white font-bold text-lg';
+                metric2.textContent = formatBRL(value);
+                metric2.className = 'text-gold font-bold text-lg';
+                cost.textContent = 'Apólice em USD, sem incidência de ITCMD';
+            } else {
+                titleEl.textContent = 'Simulação de Saúde Executiva';
+                label1.textContent = 'Investimento Mensal Estimado:';
+                label2.textContent = 'Cobertura de Reembolso Anual:';
+                const monthlyHealth = Math.max(1800, value * 0.0009);
+                metric1.textContent = formatBRL(monthlyHealth) + ' /mês';
+                metric1.className = 'text-white font-bold text-lg';
+                metric2.textContent = 'Ilimitada';
+                metric2.className = 'text-gold font-bold text-lg';
+                cost.textContent = 'Rede Einstein, Sírio-Libanês e internacional';
+            }
+        }
+
+        function scrollToCalculator() {
+            document.getElementById('simulador').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        calculateSimulatedResults();
+
+        // ---------- ARTICLE CONTENT ----------
+        const articles = {
+            'hero-article': {
+                category: 'Imóveis de Luxo & Short Stay',
+                title: 'Short Stay High-Yield: Como o Airbnb de Altíssimo Padrão Virou a Tese Preferida de Family Offices em SP e Alphaville',
+                image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1200&auto=format&fit=crop',
+                body: `<p>Nos últimos três anos, a gestão de imóveis de alto padrão para locação de curta temporada deixou de ser um nicho de operadores independentes e passou a compor a carteira de family offices e investidores institucionais em São Paulo.</p>
+                <p>A tese é simples: enquanto um aluguel tradicional em bairros como Itaim Bibi e Jardins rende entre 4% e 6% ao ano sobre o valor do imóvel, operações de short stay bem estruturadas — com precificação dinâmica, automação e gestão profissional — atingem entre 12% e 16% ao ano.</p>
+                <p>A MCM Capital atua na ponta a ponta dessa operação: da seleção do ativo com potencial de valorização e alta demanda de temporada, passando pela decoração autoral e automação residencial, até a gestão de reservas, precificação e repasse mensal ao proprietário.</p>
+                <p>Para investidores que buscam diversificar patrimônio com um ativo real, protegido de inflação e com fluxo de caixa mensal, o short stay de luxo tem se mostrado uma das teses mais consistentes do mercado imobiliário nacional.</p>`
+            },
+            'consorcio-1': {
+                category: 'Consórcio Estruturado',
+                title: 'Como adquirir imóveis de R$ 5 Milhões pagando metade da taxa dos financiamentos tradicionais',
+                image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1200&auto=format&fit=crop',
+                body: `<p>Financiamentos imobiliários tradicionais no Brasil ainda carregam taxas efetivas que, somadas a seguros e tarifas, podem ultrapassar 12% ao ano. Para ativos de alto valor, essa diferença representa milhões de reais ao longo do contrato.</p>
+                <p>O consórcio estruturado para pessoa jurídica e alta renda, quando bem desenhado, reduz esse custo para a faixa de 1.8% a 2.2% ao ano — sem incidência de juros compostos, apenas taxa de administração diluída.</p>
+                <p>A MCM Capital monta grupos de consórcio sob medida, com estratégias de lance embutido e uso combinado de cartas contempladas, permitindo contemplação em prazos muito menores que a média de mercado.</p>`
+            },
+            'seguro-1': {
+                category: 'Seguro de Vida & Sucessão',
+                title: 'Proteção Sucessória Offshore: Como garantir liquidez imediata para herdeiros sem inventário',
+                image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1200&auto=format&fit=crop',
+                body: `<p>Um dos maiores riscos patrimoniais de famílias empresárias é o congelamento de bens durante o processo de inventário — que no Brasil pode levar anos e consumir entre 4% e 8% do patrimônio em ITCMD, custas e honorários.</p>
+                <p>Apólices de seguro de vida internacionais, estruturadas em dólar, entregam a indenização diretamente aos beneficiários indicados, fora do inventário, em prazo médio de 30 dias — garantindo liquidez imediata para custear impostos, manter operações e evitar a venda forçada de ativos.</p>
+                <p>A MCM Capital estrutura essas apólices em parceria com seguradoras internacionais de primeira linha, alinhadas ao planejamento sucessório de cada família.</p>`
+            },
+            'saude-1': {
+                category: 'Executive Health',
+                title: 'Planos de Saúde Premium para Sócios e C-Level com Cobertura Internacional Albert Einstein e Sírio',
+                image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=1200&auto=format&fit=crop',
+                body: `<p>Reter talentos de alto nível e proteger sócios fundadores passa cada vez mais por uma gestão de saúde diferenciada. Planos executivos com estipulação corporativa oferecem acesso a hospitais como Albert Einstein e Sírio-Libanês, reembolso ampliado e cobertura internacional.</p>
+                <p>A MCM Capital estrutura essas apólices corporativas com condições comerciais exclusivas, adequadas ao porte e perfil de cada empresa, funcionando também como ferramenta estratégica de retenção de talentos-chave.</p>`
+            },
+            'prop-alphaville': {
+                category: 'Alphaville & Tamboré',
+                title: 'Casas de Condomínio Fechado Preparadas para Locação Executiva e Eventos Corporativos',
+                image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1200&auto=format&fit=crop',
+                body: `<p>Casas em condomínios fechados de Alphaville e Tamboré têm alta demanda de executivos de multinacionais em processos de relocation, além de eventos corporativos que buscam privacidade e infraestrutura.</p>
+                <p>Com retorno estimado de 15.2% ao ano, a MCM Capital identifica, estrutura e gerencia esses ativos ponta a ponta — da aquisição à operação de locação executiva.</p>`
+            },
+            'prop-sp-prime': {
+                category: 'Itaim Bibi & Jardins',
+                title: 'Studios e Compactos de Luxo: A Receita Certa para Ocupação Máxima em São Paulo',
+                image: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=1200&auto=format&fit=crop',
+                body: `<p>Studios bem localizados em Itaim Bibi e Jardins, com design autoral e automação residencial, atingem taxas de ocupação de até 82% — muito acima da média de mercado.</p>
+                <p>A gestão 100% remota realizada pela equipe MCM inclui precificação dinâmica, atendimento a hóspedes e relatórios mensais transparentes de repasse ao proprietário.</p>`
+            },
+            'prop-trancoso': {
+                category: 'Destinos Internacionais & Praia',
+                title: 'Villas de Alto Luxo no Litoral: A Tendência dos "Ultra-Rich Vacation Rentals"',
+                image: 'https://images.unsplash.com/photo-1613977257363-707ba9348227?q=80&w=1200&auto=format&fit=crop',
+                body: `<p>Com diárias entre R$ 8.000 e R$ 25.000, villas de alto padrão em destinos como Trancoso e Búzios deixaram de ser apenas ativos de lazer para se tornarem máquinas geradoras de dividendos.</p>
+                <p>A MCM Capital estrutura a operação de temporada preservando o uso pessoal da família nos períodos desejados, maximizando a rentabilidade no restante do calendário.</p>`
+            },
+            'seguro-detalhes': {
+                category: 'Planejamento Sucessório & Seguro de Vida',
+                title: 'Seguro de Vida High-Net-Worth: A ferramenta ideal para garantir liquidez e cobrir ITCMD sem vender patrimônio',
+                image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1200&auto=format&fit=crop',
+                body: `<p>A morte imprevista de um fundador pode congelar bens da empresa e da família, exigindo liquidação de imóveis a preço de saldo para cobrir impostos e custas de inventário.</p>
+                <p>Apólices de vida internacionais estruturadas pela MCM Capital blindam o patrimônio e entregam liquidez imediata aos herdeiros, fora do processo de inventário.</p>`
+            },
+            'saude-detalhes': {
+                category: 'Saúde Executiva & Corporativa',
+                title: 'Gestão de Seguro Saúde para Grupos C-Level: Reembolso ilimitado e hospitais de ponta',
+                image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=1200&auto=format&fit=crop',
+                body: `<p>Consultoria personalizada para diretores, herdeiros e grandes empresários, com acesso aos melhores corpos clínicos do Brasil e do exterior — Einstein, Sírio-Libanês e Mayo Clinic — sob condições exclusivas de estipulação corporativa MCM.</p>`
+            },
+            'tenis-article': {
+                category: 'Esporte de Elite & Networking',
+                title: 'Tênis de Luxo e os Grandes Torneios: Por Que as Quadras de Saibro e Grama se Tornaram o Novo Hub dos Negócios Bilionários',
+                image: 'https://images.unsplash.com/photo-1595435934249-5df7ed86e1c0?q=80&w=1200&auto=format&fit=crop',
+                body: `<p>De Roland Garros aos clubes fechados de São Paulo e Nova York, o tênis se consolidou como o esporte preferido de grandes tomadores de decisão — unindo disciplina, networking e exclusividade.</p>
+                <p>A MCM conecta clientes a experiências esportivas exclusivas, incluindo camarotes VIP nos principais Grand Slams do circuito mundial.</p>`
+            },
+            'watches-article': {
+                category: 'Alta Horlogerie',
+                title: 'Alta Relojoaria Suíça: Ativos vestíveis que superaram a inflação em 10 anos',
+                image: 'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1200&auto=format&fit=crop',
+                body: `<p>Peças de alta relojoaria suíça de edição limitada têm demonstrado valorização consistente na última década, funcionando como reserva de valor tangível e diversificação fora do sistema financeiro tradicional.</p>`
+            },
+            'yacht-article': {
+                category: 'Aviação & Náutica',
+                title: 'Estruturação de Cotas de Propriedade Compartilhada para Iates e Jatos Executivos',
+                image: 'https://images.unsplash.com/photo-1569263979104-865ab7cd8d13?q=80&w=1200&auto=format&fit=crop',
+                body: `<p>A propriedade compartilhada de iates e jatos executivos permite acesso a ativos de altíssimo padrão com uma fração do custo total e sem os custos operacionais de manutenção exclusiva.</p>
+                <p>A MCM Capital estrutura essas cotas com contratos claros de uso, manutenção e revenda, otimizando a eficiência de uso de cada ativo.</p>`
+            }
+        };
+
+        function openArticleModal(id) {
+            const article = articles[id];
+            if (!article) return;
+            const content = document.getElementById('articleModalContent');
+            content.innerHTML = `
+                <img src="${article.image}" alt="${article.title}" class="w-full h-56 object-cover rounded-2xl mb-2">
+                <span class="text-gold text-xs font-extrabold uppercase tracking-widest">${article.category}</span>
+                <h2 class="font-serif text-2xl md:text-3xl font-bold text-charcoal leading-snug">${article.title}</h2>
+                <div class="prose-mcm text-charcoal-muted text-sm font-light leading-relaxed space-y-3">${article.body}</div>
+                <button onclick="closeModal('articleModal'); openAdvisoryModal('${article.category.replace(/'/g, "\\'")}')" class="w-full mt-2 py-3.5 bg-gold hover:bg-gold-dark text-white rounded-xl text-xs font-bold uppercase tracking-wider transition-colors shadow-gold-glow">
+                    Falar com um Especialista MCM sobre este tema
+                </button>
+            `;
+            openModal('articleModal');
+        }
+    </script>
+
+</body>
+</html>
