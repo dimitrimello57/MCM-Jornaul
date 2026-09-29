@@ -333,11 +333,11 @@
     <main class="flex-1 max-w-7xl mx-auto px-4 sm:px-6 py-8 md:py-10 w-full space-y-12 md:space-y-20">
 
         <!-- HERO SECTION: SHORT STAY & REAL ESTATE FEATURE -->
-        <section data-cat-item data-cat="imoveis" class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
+        <section data-cat-item data-cat="imoveis" class="grid grid-cols-1 lg:grid-cols-12 gap-10">
 
             <!-- Lead Story (Cols 8) -->
-            <a href="artigos/short-stay-alto-padrao-family-offices.html" class="lg:col-span-8 group flex flex-col justify-between">
-                <div>
+            <div class="lg:col-span-8">
+                <a href="artigos/short-stay-alto-padrao-family-offices.html" class="group block">
                     <div class="relative rounded-3xl overflow-hidden shadow-soft-xl img-zoom-container mb-6 aspect-[16/9]">
                         <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1600&auto=format&fit=crop" alt="Apartamento de luxo para short stay" class="w-full h-full object-cover" loading="lazy">
                         <div class="absolute inset-0 bg-charcoal/40"></div>
@@ -364,12 +364,42 @@
                         </div>
                     </div>
 
-                    <p class="text-charcoal-muted text-base md:text-lg leading-relaxed font-normal mb-4">
+                    <p class="text-charcoal-muted text-base md:text-lg leading-relaxed font-normal">
                         Com rentabilidade média mais que dobrada frente aos aluguéis tradicionais, a gestão de ativos imobiliários focada em estadias curtas de luxo atrai investidores em busca de proteção cambial, fluxo de caixa previsível e valorização patrimonial.
                     </p>
+                </a>
+
+                <!-- Mini grid: secondary news, fills the space below the summary -->
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-5 mt-6 pb-6 border-b border-sand-200">
+                    <a href="artigos/casas-alphaville-tambore-locacao-executiva.html" class="group block">
+                        <div class="relative rounded-xl overflow-hidden aspect-[4/3] mb-2 img-zoom-container">
+                            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=500&auto=format&fit=crop" class="w-full h-full object-cover" alt="Casas em Alphaville para locação executiva" loading="lazy">
+                        </div>
+                        <span class="text-[9px] font-bold text-gold uppercase tracking-wider block mb-1">Imóveis</span>
+                        <h4 class="text-xs sm:text-sm font-bold text-charcoal group-hover:text-gold transition-colors leading-snug line-clamp-2">Casas de Condomínio Fechado para Locação Executiva</h4>
+                        <span class="text-[10px] text-charcoal-subtle mt-1 block">4 min de leitura</span>
+                    </a>
+
+                    <a href="artigos/tenis-luxo-grand-slams-networking.html" class="group block">
+                        <div class="relative rounded-xl overflow-hidden aspect-[4/3] mb-2 img-zoom-container">
+                            <img src="https://images.unsplash.com/photo-1595435934249-5df7ed86e1c0?q=80&w=500&auto=format&fit=crop" class="w-full h-full object-cover" alt="Tênis de luxo e Grand Slams" loading="lazy">
+                        </div>
+                        <span class="text-[9px] font-bold text-gold uppercase tracking-wider block mb-1">Lifestyle</span>
+                        <h4 class="text-xs sm:text-sm font-bold text-charcoal group-hover:text-gold transition-colors leading-snug line-clamp-2">Por Que o Tênis Virou Hub dos Negócios Bilionários</h4>
+                        <span class="text-[10px] text-charcoal-subtle mt-1 block">4 min de leitura</span>
+                    </a>
+
+                    <a href="artigos/seguro-vida-high-net-worth-itcmd.html" class="group block col-span-2 sm:col-span-1">
+                        <div class="relative rounded-xl overflow-hidden aspect-[4/3] mb-2 img-zoom-container">
+                            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=500&auto=format&fit=crop" class="w-full h-full object-cover" alt="Seguro de vida high-net-worth" loading="lazy">
+                        </div>
+                        <span class="text-[9px] font-bold text-gold uppercase tracking-wider block mb-1">Seguros</span>
+                        <h4 class="text-xs sm:text-sm font-bold text-charcoal group-hover:text-gold transition-colors leading-snug line-clamp-2">Como Cobrir ITCMD sem Vender Patrimônio</h4>
+                        <span class="text-[10px] text-charcoal-subtle mt-1 block">4 min de leitura</span>
+                    </a>
                 </div>
 
-                <div class="flex items-center justify-between text-xs text-charcoal-subtle pt-4 border-t border-sand-200">
+                <a href="artigos/short-stay-alto-padrao-family-offices.html" class="group flex items-center justify-between text-xs text-charcoal-subtle pt-4">
                     <div class="flex items-center space-x-3">
                         <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=120&auto=format&fit=crop" class="w-9 h-9 rounded-full object-cover border border-gold" alt="Especialista MCM" loading="lazy">
                         <div>
@@ -378,11 +408,11 @@
                         </div>
                     </div>
                     <span class="text-gold font-bold uppercase tracking-wider group-hover:translate-x-1 transition-transform">Ler Análise Completa <i class="fa-solid fa-arrow-right text-[10px] ml-1"></i></span>
-                </div>
-            </a>
+                </a>
+            </div>
 
             <!-- Essential Column (Cols 4) -->
-            <div class="lg:col-span-4 bg-sand-50 p-6 sm:p-8 rounded-3xl border border-sand-200 flex flex-col justify-between shadow-soft-lg">
+            <div class="lg:col-span-4 bg-sand-50 p-6 sm:p-8 rounded-3xl border border-sand-200 shadow-soft-lg">
                 <div>
                     <div class="flex items-center justify-between pb-4 border-b border-sand-200 mb-6">
                         <h3 class="font-serif text-2xl font-bold text-charcoal">
