@@ -12,7 +12,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -49,6 +49,7 @@
                     fontFamily: {
                         serif: ['Cormorant Garamond', 'Georgia', 'serif'],
                         sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        data: ['Inter', 'Plus Jakarta Sans', 'sans-serif'],
                     },
                     boxShadow: {
                         'soft-lg': '0 20px 40px -15px rgba(0, 0, 0, 0.04)',
@@ -177,6 +178,31 @@
             font-size: 11px;
             font-family: 'Plus Jakarta Sans', sans-serif;
         }
+        .mcm-chart {
+            overflow-x: auto;
+        }
+        .mcm-chart svg {
+            min-width: 560px;
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 22px;
+            height: 22px;
+            border-radius: 999px;
+            background: #B89758;
+            cursor: pointer;
+            border: 3px solid #FFFFFF;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+        }
+        input[type="range"]::-moz-range-thumb {
+            width: 22px;
+            height: 22px;
+            border-radius: 999px;
+            background: #B89758;
+            cursor: pointer;
+            border: 3px solid #FFFFFF;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+        }
     </style>
 </head>
 
@@ -236,7 +262,7 @@
 
             <div class="hidden md:flex items-center space-x-6 text-xs font-semibold tracking-wider text-charcoal-muted uppercase">
                 <a href="#imoveis-shortstay" class="hover:text-gold transition-colors">Imóveis</a>
-                <a href="#consorcio-wealth" class="hover:text-gold transition-colors">Consórcio Smart</a>
+                <a href="#simulador" class="hover:text-gold transition-colors">Consórcio Smart</a>
                 <a href="#protecao-saude" class="hover:text-gold transition-colors">Seguros &amp; Sucessão</a>
             </div>
 
@@ -270,7 +296,6 @@
                 <div class="flex items-center space-x-8 text-xs font-bold uppercase tracking-wider py-3.5 shrink-0" id="categoryNav">
                     <button onclick="filterCategory('todos', this)" class="category-btn active-cat text-charcoal-muted pb-0.5">Todos</button>
                     <button onclick="filterCategory('imoveis', this)" class="category-btn text-charcoal-muted hover:text-gold transition-colors">Imóveis &amp; Short Stay</button>
-                    <button onclick="filterCategory('consorcio', this)" class="category-btn text-charcoal-muted hover:text-gold transition-colors">Alavancagem &amp; Consórcio</button>
                     <button onclick="filterCategory('protecao', this)" class="category-btn text-charcoal-muted hover:text-gold transition-colors">Seguro de Vida &amp; Saúde Executiva</button>
                     <button onclick="filterCategory('lifestyle', this)" class="category-btn text-charcoal-muted hover:text-gold transition-colors">Lifestyle &amp; Tênis de Luxo</button>
                     <button onclick="filterCategory('cases', this)" class="category-btn text-charcoal-muted hover:text-gold transition-colors">Cases de Sucesso MCM</button>
@@ -305,7 +330,7 @@
     </div>
 
     <!-- MAIN CONTENT -->
-    <main class="flex-1 max-w-7xl mx-auto px-6 py-10 w-full space-y-20">
+    <main class="flex-1 max-w-7xl mx-auto px-4 sm:px-6 py-8 md:py-10 w-full space-y-12 md:space-y-20">
 
         <!-- HERO SECTION: SHORT STAY & REAL ESTATE FEATURE -->
         <section data-cat-item data-cat="imoveis" class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
@@ -315,9 +340,10 @@
                 <div>
                     <div class="relative rounded-3xl overflow-hidden shadow-soft-xl img-zoom-container mb-6 aspect-[16/9]">
                         <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1600&auto=format&fit=crop" alt="Apartamento de luxo para short stay" class="w-full h-full object-cover" loading="lazy">
-                        <div class="absolute inset-0 bg-gradient-to-t from-charcoal/90 via-charcoal/20 to-transparent"></div>
+                        <div class="absolute inset-0 bg-charcoal/40"></div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-charcoal/95 via-charcoal/45 to-transparent"></div>
 
-                        <div class="absolute top-6 left-6 flex space-x-2">
+                        <div class="absolute top-4 left-4 right-4 sm:top-6 sm:left-6 sm:right-auto flex flex-wrap gap-2">
                             <span class="glass-badge text-charcoal font-extrabold text-[10px] tracking-widest uppercase px-3.5 py-1.5 rounded-full border border-white/50 shadow-sm">
                                 ESTUDO DE MERCADO MCM
                             </span>
@@ -326,13 +352,13 @@
                             </span>
                         </div>
 
-                        <div class="absolute bottom-8 left-8 right-8 text-white">
+                        <div class="absolute bottom-5 left-5 right-5 sm:bottom-8 sm:left-8 sm:right-8 text-white">
                             <div class="flex items-center space-x-3 text-gold text-xs font-bold uppercase tracking-wider mb-2">
                                 <span>Imóveis de Luxo &amp; Short Stay</span>
                                 <span>•</span>
                                 <span class="text-sand-100 font-normal">Leitura: 6 min</span>
                             </div>
-                            <h2 class="text-3xl md:text-5xl font-bold leading-tight tracking-tight text-white mb-3 group-hover:text-gold-100 transition-colors">
+                            <h2 class="text-xl sm:text-2xl md:text-4xl font-bold leading-snug md:leading-tight tracking-tight text-white mb-3 group-hover:text-gold-100 transition-colors">
                                 Short Stay High-Yield: Como o Airbnb de Altíssimo Padrão Virou a Tese Preferida de Family Offices em SP e Alphaville
                             </h2>
                         </div>
@@ -356,7 +382,7 @@
             </a>
 
             <!-- Essential Column (Cols 4) -->
-            <div class="lg:col-span-4 bg-sand-50 p-8 rounded-3xl border border-sand-200 flex flex-col justify-between shadow-soft-lg">
+            <div class="lg:col-span-4 bg-sand-50 p-6 sm:p-8 rounded-3xl border border-sand-200 flex flex-col justify-between shadow-soft-lg">
                 <div>
                     <div class="flex items-center justify-between pb-4 border-b border-sand-200 mb-6">
                         <h3 class="font-serif text-2xl font-bold text-charcoal">
@@ -438,14 +464,14 @@
                 </div>
 
                 <!-- QUIZ -->
-                <div id="mcmQuiz" class="bg-charcoal-800/80 p-8 md:p-10 rounded-3xl border border-gold/20 max-w-2xl mx-auto">
-                    <div class="flex gap-1.5 mb-8" id="mcmSteps"></div>
+                <div id="mcmQuiz" class="bg-charcoal-800/80 p-5 sm:p-8 md:p-10 rounded-3xl border border-gold/20 max-w-2xl mx-auto">
+                    <div class="flex gap-1.5 mb-6 md:mb-8" id="mcmSteps"></div>
                     <div id="mcmQBody"></div>
-                    <div class="flex items-center justify-between mt-8">
-                        <button id="mcmQBack" class="px-5 py-2.5 rounded-full border border-white/20 text-xs font-bold uppercase tracking-wider text-white hover:border-gold hover:text-gold transition-colors invisible">
+                    <div class="flex flex-col-reverse sm:flex-row items-center gap-3 sm:justify-between mt-8">
+                        <button id="mcmQBack" class="w-full sm:w-auto px-5 py-3 sm:py-2.5 rounded-full border border-white/20 text-xs font-bold uppercase tracking-wider text-white hover:border-gold hover:text-gold transition-colors invisible">
                             Voltar
                         </button>
-                        <button id="mcmQNext" disabled class="px-6 py-2.5 rounded-full bg-gold hover:bg-gold-dark text-white text-xs font-bold uppercase tracking-wider transition-colors disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-gold">
+                        <button id="mcmQNext" disabled class="w-full sm:w-auto px-6 py-3 sm:py-2.5 rounded-full bg-gold hover:bg-gold-dark text-white text-xs font-bold uppercase tracking-wider transition-colors disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-gold">
                             Continuar
                         </button>
                     </div>
@@ -469,19 +495,19 @@
                     </div>
 
                     <!-- Controls -->
-                    <div class="bg-charcoal-800/80 p-6 md:p-8 rounded-3xl border border-gold/20 grid grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="bg-charcoal-800/80 p-5 sm:p-6 md:p-8 rounded-3xl border border-gold/20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
                         <div>
                             <label for="mcmCarta" class="block text-[10px] font-bold uppercase tracking-wider text-white/70 mb-2">Valor da carta</label>
-                            <select id="mcmCarta" class="w-full bg-charcoal border border-white/15 rounded-xl p-3 text-xs font-semibold text-white focus:outline-none focus:border-gold"></select>
+                            <select id="mcmCarta" class="w-full bg-charcoal border border-white/15 rounded-xl p-3.5 text-sm font-semibold text-white focus:outline-none focus:border-gold"></select>
                         </div>
                         <div>
                             <label for="mcmMes" class="block text-[10px] font-bold uppercase tracking-wider text-white/70 mb-2">Mês da contemplação</label>
-                            <div class="font-serif font-bold text-2xl text-white leading-none"><span id="mcmVMes">36</span> <span class="text-xs font-sans font-normal text-white/50">de 219</span></div>
-                            <input type="range" id="mcmMes" min="1" max="219" value="36" class="w-full accent-gold mt-2">
+                            <div class="font-data font-bold text-2xl text-white leading-none tabular-nums"><span id="mcmVMes">36</span> <span class="text-xs font-sans font-normal text-white/50">de 219</span></div>
+                            <input type="range" id="mcmMes" min="1" max="219" value="36" class="w-full accent-gold mt-3 h-2">
                         </div>
                         <div>
                             <label for="mcmLoc" class="block text-[10px] font-bold uppercase tracking-wider text-white/70 mb-2">Locação estimada</label>
-                            <select id="mcmLoc" class="w-full bg-charcoal border border-white/15 rounded-xl p-3 text-xs font-semibold text-white focus:outline-none focus:border-gold">
+                            <select id="mcmLoc" class="w-full bg-charcoal border border-white/15 rounded-xl p-3.5 text-sm font-semibold text-white focus:outline-none focus:border-gold">
                                 <option value="0.006">0,6% a.m. · longa temporada</option>
                                 <option value="0.008" selected>0,8% a.m.</option>
                                 <option value="0.010">1,0% a.m.</option>
@@ -491,7 +517,7 @@
                         </div>
                         <div>
                             <label for="mcmIncc" class="block text-[10px] font-bold uppercase tracking-wider text-white/70 mb-2">INCC anual</label>
-                            <select id="mcmIncc" class="w-full bg-charcoal border border-white/15 rounded-xl p-3 text-xs font-semibold text-white focus:outline-none focus:border-gold">
+                            <select id="mcmIncc" class="w-full bg-charcoal border border-white/15 rounded-xl p-3.5 text-sm font-semibold text-white focus:outline-none focus:border-gold">
                                 <option value="0.03">3%</option>
                                 <option value="0.05" selected>5%</option>
                                 <option value="0.075">7,5%</option>
@@ -501,14 +527,14 @@
                     </div>
 
                     <!-- Outputs -->
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
 
                         <!-- Saída A: Cessão -->
-                        <div class="bg-charcoal-800/80 p-6 md:p-8 rounded-3xl border border-gold/20 space-y-1">
+                        <div class="bg-charcoal-800/80 p-5 sm:p-6 md:p-8 rounded-3xl border border-gold/20 space-y-1">
                             <span class="text-[10px] font-extrabold text-gold uppercase tracking-widest">Saída A · Cessão da Carta</span>
                             <h5 class="font-serif text-xl font-bold text-white">Cessão da carta contemplada</h5>
                             <p class="text-xs text-white/50 font-normal">Liquidação estimada em 10 dias após a contemplação.</p>
-                            <div id="mcmARes" class="font-serif text-3xl font-bold pt-2"></div>
+                            <div id="mcmARes" class="font-data text-3xl font-bold pt-2 tabular-nums"></div>
                             <p class="text-xs text-white/50 font-normal">resultado bruto estimado</p>
 
                             <div class="pt-4 mt-2 border-t border-white/10 space-y-2.5 font-mono text-xs">
@@ -522,11 +548,11 @@
                         </div>
 
                         <!-- Saída B: Renda -->
-                        <div class="bg-emerald-500/10 p-6 md:p-8 rounded-3xl border border-emerald-400/25 space-y-1">
+                        <div class="bg-emerald-500/10 p-5 sm:p-6 md:p-8 rounded-3xl border border-emerald-400/25 space-y-1">
                             <span class="text-[10px] font-extrabold text-emerald-400 uppercase tracking-widest">Saída B · Crédito no Imóvel</span>
                             <h5 class="font-serif text-xl font-bold text-white">Crédito no imóvel, avaliando a renda</h5>
                             <p class="text-xs text-white/50 font-normal">Mantém o crédito integral e utiliza a carta contemplada.</p>
-                            <div id="mcmBImovel" class="font-serif text-3xl font-bold text-white pt-2"></div>
+                            <div id="mcmBImovel" class="font-data text-3xl font-bold text-white pt-2 tabular-nums"></div>
                             <p class="text-xs text-white/50 font-normal">valor estimado do imóvel adquirido</p>
 
                             <div class="pt-4 mt-2 border-t border-white/10 space-y-2.5 font-mono text-xs">
@@ -542,7 +568,7 @@
                     </div>
 
                     <!-- Chart -->
-                    <div class="bg-charcoal-800/80 p-6 md:p-8 rounded-3xl border border-gold/20 space-y-3">
+                    <div class="bg-charcoal-800/80 p-5 sm:p-6 md:p-8 rounded-3xl border border-gold/20 space-y-3">
                         <span class="text-gold text-xs font-extrabold uppercase tracking-widest block">Leitura visual</span>
                         <h5 class="text-xl font-bold tracking-tight text-white">Como a cessão muda com o tempo</h5>
                         <div class="flex items-center gap-6 text-xs text-white/60">
@@ -673,49 +699,45 @@
             </div>
         </section>
 
-        <!-- SECTION 4: FINANCIAL SOLUTIONS & SMART CONSÓRCIO LEVERAGE -->
-        <section id="consorcio-wealth" data-cat-item data-cat="consorcio" class="bg-charcoal text-white rounded-3xl p-8 md:p-14 relative overflow-hidden shadow-soft-xl border border-gold/30">
-            <div class="absolute right-0 top-0 opacity-5 pointer-events-none translate-x-10 -translate-y-10">
-                <i class="fa-solid fa-coins text-[350px]"></i>
+        <!-- SECTION 4B: MAIS LIDAS (fills space, more news density) -->
+        <section class="space-y-6">
+            <div class="flex items-center justify-between border-b border-sand-200 pb-4">
+                <h3 class="font-serif text-2xl md:text-3xl font-bold text-charcoal">Mais Lidas no MCM Journal</h3>
+                <i class="fa-solid fa-fire text-gold"></i>
             </div>
 
-            <div class="max-w-3xl relative z-10 space-y-6">
-                <div class="inline-flex items-center space-x-2 border border-gold/40 px-3.5 py-1 rounded-full text-gold text-[10px] font-extrabold tracking-widest uppercase">
-                    <i class="fa-solid fa-chart-line"></i>
-                    <span>Soluções de Crédito e Alavancagem MCM</span>
-                </div>
-
-                <h3 class="text-3xl md:text-5xl font-bold leading-tight tracking-tight text-white">
-                    Consórcio Imobiliário de Luxo: A Estratégia dos Grandes Investidores para Comprar sem Pagar Juros
-                </h3>
-
-                <p class="text-sand-100 text-sm md:text-base font-normal leading-relaxed">
-                    Esqueça o consórcio tradicional para pessoa física. Na MCM Capital, estruturamos grupos de consórcio corporativo de alta renda como estratégia de alavancagem de capital, lance embutido e composição de caixa sem os custos abusivos de financiamentos imobiliários.
-                </p>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2 text-xs">
-                    <div class="bg-charcoal-800/80 p-4 rounded-xl border border-gold/20">
-                        <span class="text-gold font-mono font-bold text-lg block">1.8% a 2.2% a.a.</span>
-                        <span class="text-sand-100 text-[11px]">Custo total médio aproximado frente aos 12% a.a. dos bancos.</span>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+                <a href="artigos/consorcio-estruturado-imoveis-alto-valor.html" class="group block">
+                    <div class="relative rounded-2xl overflow-hidden aspect-[4/3] mb-3 img-zoom-container">
+                        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover" alt="Consórcio estruturado para imóveis de alto valor" loading="lazy">
                     </div>
-                    <div class="bg-charcoal-800/80 p-4 rounded-xl border border-gold/20">
-                        <span class="text-gold font-mono font-bold text-lg block">Alavancagem de Lance</span>
-                        <span class="text-sand-100 text-[11px]">Uso da própria carta para contemplação rápida do ativo.</span>
-                    </div>
-                    <div class="bg-charcoal-800/80 p-4 rounded-xl border border-gold/20">
-                        <span class="text-gold font-mono font-bold text-lg block">Proteção Fiscal</span>
-                        <span class="text-sand-100 text-[11px]">Planejamento tributário eficiente para compra de frota, jatos e imóveis.</span>
-                    </div>
-                </div>
+                    <span class="text-[10px] font-bold text-gold uppercase tracking-wider block mb-1">Consórcio Estruturado</span>
+                    <h4 class="text-sm md:text-base font-bold text-charcoal group-hover:text-gold transition-colors leading-snug">Como adquirir imóveis de R$ 5 milhões pagando metade da taxa</h4>
+                </a>
 
-                <div class="pt-4 flex flex-col sm:flex-row items-center space-y-3 sm:space-y-0 sm:space-x-4">
-                    <button onclick="openAdvisoryModal('Estruturação de Consórcio MCM')" class="w-full sm:w-auto bg-gold hover:bg-gold-dark text-white px-8 py-3.5 rounded-xl font-bold text-xs uppercase tracking-wider transition-all shadow-gold-glow">
-                        Falar com Especialista em Consórcio MCM
-                    </button>
-                    <a href="#simulador" class="text-xs font-bold text-sand-100 hover:text-gold transition-colors underline">
-                        Simular com Valor do Meu Ativo <i class="fa-solid fa-arrow-right ml-1"></i>
-                    </a>
-                </div>
+                <a href="artigos/seguro-vida-high-net-worth-itcmd.html" class="group block">
+                    <div class="relative rounded-2xl overflow-hidden aspect-[4/3] mb-3 img-zoom-container">
+                        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover" alt="Seguro de vida high-net-worth" loading="lazy">
+                    </div>
+                    <span class="text-[10px] font-bold text-gold uppercase tracking-wider block mb-1">Seguro de Vida</span>
+                    <h4 class="text-sm md:text-base font-bold text-charcoal group-hover:text-gold transition-colors leading-snug">A ferramenta ideal para cobrir ITCMD sem vender patrimônio</h4>
+                </a>
+
+                <a href="artigos/alta-relojoaria-suica-ativo-vestivel.html" class="group block">
+                    <div class="relative rounded-2xl overflow-hidden aspect-[4/3] mb-3 img-zoom-container">
+                        <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover" alt="Alta relojoaria suíça" loading="lazy">
+                    </div>
+                    <span class="text-[10px] font-bold text-gold uppercase tracking-wider block mb-1">Alta Horlogerie</span>
+                    <h4 class="text-sm md:text-base font-bold text-charcoal group-hover:text-gold transition-colors leading-snug">Ativos vestíveis que superaram a inflação em 10 anos</h4>
+                </a>
+
+                <a href="artigos/cotas-compartilhadas-iates-jatos.html" class="group block">
+                    <div class="relative rounded-2xl overflow-hidden aspect-[4/3] mb-3 img-zoom-container">
+                        <img src="https://images.unsplash.com/photo-1569263979104-865ab7cd8d13?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover" alt="Cotas compartilhadas de iates e jatos" loading="lazy">
+                    </div>
+                    <span class="text-[10px] font-bold text-gold uppercase tracking-wider block mb-1">Aviação &amp; Náutica</span>
+                    <h4 class="text-sm md:text-base font-bold text-charcoal group-hover:text-gold transition-colors leading-snug">Cotas de propriedade compartilhada para iates e jatos</h4>
+                </a>
             </div>
         </section>
 
@@ -731,42 +753,52 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 
                 <!-- Card Life Insurance & Succession -->
-                <a href="artigos/seguro-vida-high-net-worth-itcmd.html" class="bg-sand-50 p-8 rounded-3xl border border-sand-200 hover:border-gold transition-all group flex flex-col justify-between">
-                    <div class="space-y-4">
-                        <div class="w-12 h-12 rounded-2xl bg-gold/10 border border-gold/30 flex items-center justify-center text-gold text-xl">
-                            <i class="fa-solid fa-shield-heart"></i>
+                <a href="artigos/seguro-vida-high-net-worth-itcmd.html" class="bg-sand-50 rounded-3xl border border-sand-200 hover:border-gold transition-all group flex flex-col justify-between overflow-hidden">
+                    <div>
+                        <div class="relative h-48 img-zoom-container">
+                            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=900&auto=format&fit=crop" class="w-full h-full object-cover" alt="Planejamento sucessório e seguro de vida" loading="lazy">
+                            <div class="absolute top-4 left-4 w-10 h-10 rounded-xl bg-white/90 backdrop-blur-md border border-white/50 flex items-center justify-center text-gold text-lg shadow-sm">
+                                <i class="fa-solid fa-shield-heart"></i>
+                            </div>
                         </div>
-                        <span class="text-[10px] font-extrabold text-gold uppercase tracking-wider block">PLANEJAMENTO SUCESSÓRIO &amp; SEGURO DE VIDA</span>
-                        <h4 class="text-2xl font-bold text-charcoal group-hover:text-gold transition-colors">
-                            Seguro de Vida High-Net-Worth: A ferramenta ideal para garantir liquidez e cobrir ITCMD sem vender patrimônio
-                        </h4>
-                        <p class="text-charcoal-muted text-sm font-normal leading-relaxed">
-                            A morte imprevista de um fundador de empresa pode congelar bens e exigir liquidação de imóveis a preço de saldo para pagar impostos. Entenda como as apólices de vida internacionais da MCM blindam e liquidam despesas de inventário.
-                        </p>
+                        <div class="p-6 md:p-8 space-y-4">
+                            <span class="text-[10px] font-extrabold text-gold uppercase tracking-wider block">PLANEJAMENTO SUCESSÓRIO &amp; SEGURO DE VIDA</span>
+                            <h4 class="text-2xl font-bold text-charcoal group-hover:text-gold transition-colors">
+                                Seguro de Vida High-Net-Worth: A ferramenta ideal para garantir liquidez e cobrir ITCMD sem vender patrimônio
+                            </h4>
+                            <p class="text-charcoal-muted text-sm font-normal leading-relaxed">
+                                A morte imprevista de um fundador de empresa pode congelar bens e exigir liquidação de imóveis a preço de saldo para pagar impostos. Entenda como as apólices de vida internacionais da MCM blindam e liquidam despesas de inventário.
+                            </p>
+                        </div>
                     </div>
 
-                    <div class="pt-6 mt-6 border-t border-sand-200 flex justify-between items-center text-xs font-bold text-gold">
+                    <div class="px-6 md:px-8 pb-6 md:pb-8 pt-2 flex justify-between items-center text-xs font-bold text-gold">
                         <span>Ver Opções de Apólices Internacionais</span>
                         <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
                     </div>
                 </a>
 
                 <!-- Card Executive Health Insurance -->
-                <a href="artigos/saude-executiva-c-level-corporativa.html" class="bg-sand-50 p-8 rounded-3xl border border-sand-200 hover:border-gold transition-all group flex flex-col justify-between">
-                    <div class="space-y-4">
-                        <div class="w-12 h-12 rounded-2xl bg-gold/10 border border-gold/30 flex items-center justify-center text-gold text-xl">
-                            <i class="fa-solid fa-user-doctor"></i>
+                <a href="artigos/saude-executiva-c-level-corporativa.html" class="bg-sand-50 rounded-3xl border border-sand-200 hover:border-gold transition-all group flex flex-col justify-between overflow-hidden">
+                    <div>
+                        <div class="relative h-48 img-zoom-container">
+                            <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=900&auto=format&fit=crop" class="w-full h-full object-cover" alt="Saúde executiva e corporativa" loading="lazy">
+                            <div class="absolute top-4 left-4 w-10 h-10 rounded-xl bg-white/90 backdrop-blur-md border border-white/50 flex items-center justify-center text-gold text-lg shadow-sm">
+                                <i class="fa-solid fa-user-doctor"></i>
+                            </div>
                         </div>
-                        <span class="text-[10px] font-extrabold text-gold uppercase tracking-wider block">SAÚDE EXECUTIVA &amp; CORPORATIVA</span>
-                        <h4 class="text-2xl font-bold text-charcoal group-hover:text-gold transition-colors">
-                            Gestão de Seguro Saúde para Grupos C-Level: Reembolso ilimitado e hospitais de ponta
-                        </h4>
-                        <p class="text-charcoal-muted text-sm font-normal leading-relaxed">
-                            Uma consultoria personalizada para diretores, herdeiros e grandes empresários. Acesso aos melhores corpos clínicos do Brasil e do exterior (Einstein, Sírio-Libanês, Mayo Clinic) com condições exclusivas e estipulação corporativa MCM.
-                        </p>
+                        <div class="p-6 md:p-8 space-y-4">
+                            <span class="text-[10px] font-extrabold text-gold uppercase tracking-wider block">SAÚDE EXECUTIVA &amp; CORPORATIVA</span>
+                            <h4 class="text-2xl font-bold text-charcoal group-hover:text-gold transition-colors">
+                                Gestão de Seguro Saúde para Grupos C-Level: Reembolso ilimitado e hospitais de ponta
+                            </h4>
+                            <p class="text-charcoal-muted text-sm font-normal leading-relaxed">
+                                Uma consultoria personalizada para diretores, herdeiros e grandes empresários. Acesso aos melhores corpos clínicos do Brasil e do exterior (Einstein, Sírio-Libanês, Mayo Clinic) com condições exclusivas e estipulação corporativa MCM.
+                            </p>
+                        </div>
                     </div>
 
-                    <div class="pt-6 mt-6 border-t border-sand-200 flex justify-between items-center text-xs font-bold text-gold">
+                    <div class="px-6 md:px-8 pb-6 md:pb-8 pt-2 flex justify-between items-center text-xs font-bold text-gold">
                         <span>Solicitar Estudo de Seguro Saúde Executivo</span>
                         <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
                     </div>
@@ -841,7 +873,7 @@
         </section>
 
         <!-- SECTION 7: SUCCESS CASES & MCM ADVISORY PROOF -->
-        <section id="cases" data-cat-item data-cat="cases" class="bg-sand-50 rounded-3xl p-8 md:p-12 border border-sand-200 space-y-8">
+        <section id="cases" data-cat-item data-cat="cases" class="bg-sand-50 rounded-3xl p-6 sm:p-8 md:p-12 border border-sand-200 space-y-8">
             <div class="text-center max-w-2xl mx-auto space-y-2">
                 <span class="text-gold text-xs font-extrabold uppercase tracking-widest">Casos Práticos MCM Capital</span>
                 <h3 class="font-serif text-3xl font-bold text-charcoal">Histórias Reais de Sucesso Patrimonial</h3>
@@ -898,9 +930,9 @@
         </section>
 
         <!-- NEWSLETTER SECTION -->
-        <section class="bg-charcoal text-white rounded-3xl p-8 md:p-14 text-center space-y-6 border border-gold/30">
+        <section class="bg-charcoal text-white rounded-3xl p-6 sm:p-8 md:p-14 text-center space-y-6 border border-gold/30">
             <span class="text-gold text-xs font-extrabold uppercase tracking-widest">MCM Journal na sua caixa de entrada</span>
-            <h3 class="text-3xl md:text-4xl font-bold tracking-tight max-w-2xl mx-auto">Receba análises exclusivas de mercado, imóveis off-market e oportunidades de alavancagem patrimonial</h3>
+            <h3 class="text-2xl md:text-4xl font-bold tracking-tight leading-snug md:leading-tight max-w-2xl mx-auto">Receba análises exclusivas de mercado, imóveis off-market e oportunidades de alavancagem patrimonial</h3>
             <form id="newsletterForm" onsubmit="handleNewsletterSubmit(event)" class="max-w-md mx-auto flex flex-col sm:flex-row gap-3 pt-2">
                 <input type="email" required placeholder="Seu melhor e-mail" class="flex-1 bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-sm text-white placeholder:text-sand-100/60 focus:outline-none focus:border-gold">
                 <button type="submit" class="bg-gold hover:bg-gold-dark text-white px-6 py-3 rounded-xl text-xs font-bold uppercase tracking-wider transition-colors shrink-0">Assinar Gratuitamente</button>
@@ -922,7 +954,7 @@
                 <h6 class="text-xs font-extrabold uppercase tracking-wider text-charcoal">Soluções</h6>
                 <ul class="space-y-2 text-xs text-charcoal-muted">
                     <li><a href="#imoveis-shortstay" class="hover:text-gold">Imóveis &amp; Short Stay</a></li>
-                    <li><a href="#consorcio-wealth" class="hover:text-gold">Consórcio Estruturado</a></li>
+                    <li><a href="#simulador" class="hover:text-gold">Consórcio Estruturado</a></li>
                     <li><a href="#protecao-saude" class="hover:text-gold">Seguro &amp; Saúde Executiva</a></li>
                     <li><a href="#lifestyle" class="hover:text-gold">Lifestyle</a></li>
                 </ul>
@@ -1234,16 +1266,16 @@
             else encaixe = 'cabe com folga no que você indicou';
 
             const par = [];
-            par.push(`A parcela reduzida dessa carta começa em <strong class="font-semibold text-charcoal">${mcmBrl(p1)}</strong> por mês e ${encaixe}. Ela é reajustada todo ano pelo INCC, então o aperto tende a aumentar antes da contemplação, não a diminuir.`);
-            par.push(`Em ${m} meses você terá desembolsado <strong class="font-semibold text-charcoal">${mcmBrl(A.des)}</strong>, com um crédito corrigido de <strong class="font-semibold text-charcoal">${mcmBrl(A.cred)}</strong> na mão — ${mcmPct(A.des / A.cred)} do valor. Isso não é rendimento: é a estrutura de crédito dando acesso a um valor grande com desembolso pequeno, cobrando o tempo em troca.`);
+            par.push(`A parcela reduzida dessa carta começa em <strong class="font-semibold text-gold">${mcmBrl(p1)}</strong> por mês e ${encaixe}. Ela é reajustada todo ano pelo INCC, então o aperto tende a aumentar antes da contemplação, não a diminuir.`);
+            par.push(`Em ${m} meses você terá desembolsado <strong class="font-semibold text-gold">${mcmBrl(A.des)}</strong>, com um crédito corrigido de <strong class="font-semibold text-gold">${mcmBrl(A.cred)}</strong> na mão — ${mcmPct(A.des / A.cred)} do valor. Isso não é rendimento: é a estrutura de crédito dando acesso a um valor grande com desembolso pequeno, cobrando o tempo em troca.`);
             if (mcmResp.obj === 'venda' || mcmResp.obj === 'ambas')
-                par.push(`<strong class="font-semibold text-charcoal">Saída A, cessão:</strong> contemplando em ${m} meses, o cenário-base estima uma venda de ${mcmBrl(A.venda)} contra ${mcmBrl(A.des)} desembolsados. Esse número depende inteiramente da premissa de cessão a 30% — a mais frágil do modelo.`);
+                par.push(`<strong class="font-semibold text-white">Saída A, cessão:</strong> contemplando em ${m} meses, o cenário-base estima uma venda de <strong class="font-semibold text-gold">${mcmBrl(A.venda)}</strong> contra <strong class="font-semibold text-gold">${mcmBrl(A.des)}</strong> desembolsados. Esse número depende inteiramente da premissa de cessão a 30% — a mais frágil do modelo.`);
             if (mcmResp.obj === 'renda' || mcmResp.obj === 'ambas')
-                par.push(`<strong class="font-semibold text-charcoal">Saída B, renda:</strong> no mesmo mês, o aluguel estimado de ${mcmBrl(B.aluguel)} cobriria ${mcmPct(B.cob, 0)} de uma parcela pós-contemplação de ${mcmBrl(B.parcPos)}.`);
+                par.push(`<strong class="font-semibold text-white">Saída B, renda:</strong> no mesmo mês, o aluguel estimado de <strong class="font-semibold text-gold">${mcmBrl(B.aluguel)}</strong> cobriria ${mcmPct(B.cob, 0)} de uma parcela pós-contemplação de <strong class="font-semibold text-gold">${mcmBrl(B.parcPos)}</strong>.`);
             if (mcmResp.obj === 'uso')
-                par.push(`Para uso próprio, o ponto central é o fluxo de caixa: depois da contemplação, a parcela estimada passa para ${mcmBrl(B.parcPos)} por mês.`);
+                par.push(`Para uso próprio, o ponto central é o fluxo de caixa: depois da contemplação, a parcela estimada passa para <strong class="font-semibold text-gold">${mcmBrl(B.parcPos)}</strong> por mês.`);
             if (virada)
-                par.push(`E o ponto que quase ninguém mostra: mantida a cessão a 30%, o resultado bruto da venda deixa de ser positivo por volta do <strong class="font-semibold text-charcoal">mês ${virada}</strong>.`);
+                par.push(`E o ponto que quase ninguém mostra: mantida a cessão a 30%, o resultado bruto da venda deixa de ser positivo por volta do <strong class="font-semibold text-gold">mês ${virada}</strong>.`);
 
             mcm$('mcmLTitle').textContent = `${mcmResp.nome}, é assim que essa estrutura se comporta no seu caso`;
             mcm$('mcmLText').innerHTML = par.map(t => `<p>${t}</p>`).join('');
@@ -1265,7 +1297,7 @@
 
             const A = mcmSaidaA(m, carta, incc);
             mcm$('mcmARes').textContent = mcmBrl(A.res);
-            mcm$('mcmARes').className = 'font-serif text-3xl font-bold pt-2 ' + (A.res >= 0 ? 'text-emerald-400' : 'text-rose-400');
+            mcm$('mcmARes').className = 'font-data text-3xl font-bold pt-2 tabular-nums ' + (A.res >= 0 ? 'text-emerald-400' : 'text-rose-400');
             mcm$('mcmACred').textContent = mcmBrl(A.cred);
             mcm$('mcmAVenda').textContent = mcmBrl(A.venda);
             mcm$('mcmADes').textContent = mcmBrl(A.des);
