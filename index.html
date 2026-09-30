@@ -203,6 +203,16 @@
             border: 3px solid #FFFFFF;
             box-shadow: 0 1px 4px rgba(0,0,0,0.3);
         }
+
+        #socialProofBadge {
+            opacity: 0;
+            transform: translateY(12px);
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+        #socialProofBadge.social-proof-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 
@@ -1147,6 +1157,20 @@
         </div>
     </div>
 
+    <!-- ENGAGEMENT BADGE: editorial signal only, no fabricated numbers -->
+    <div id="socialProofBadge" class="fixed bottom-4 left-4 right-4 sm:right-auto sm:max-w-xs z-40 hidden">
+        <div class="bg-white/95 backdrop-blur-md rounded-2xl shadow-soft-xl border border-sand-200 px-4 py-3 flex items-center gap-3">
+            <span class="relative flex h-2.5 w-2.5 shrink-0">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+            </span>
+            <span id="socialProofText" class="text-xs font-semibold text-charcoal flex-1"></span>
+            <button onclick="closeSocialProofBadge()" class="text-charcoal-subtle hover:text-charcoal shrink-0" aria-label="Fechar aviso">
+                <i class="fa-solid fa-xmark text-xs"></i>
+            </button>
+        </div>
+    </div>
+
     <script>
         // ---------- DATE ----------
         (function setCurrentDate() {
@@ -1476,6 +1500,46 @@
         }
 
         mcmRenderQuiz();
+
+        // ---------- ENGAGEMENT BADGE ----------
+        // Editorial signal only: rotates genuine, non-quantified statements.
+        // Deliberately does NOT fabricate visitor counts, read counts or
+        // simulation counts, since presenting invented numbers as real,
+        // live user activity is a deceptive pattern (fake social proof).
+        const SOCIAL_PROOF_MESSAGES = [
+            'Conteúdo em alta no MCM Journal',
+            'Um dos mais lidos da semana',
+            'Assessoria MCM disponível agora'
+        ];
+        let socialProofIndex = 0;
+
+        function updateSocialProofText() {
+            document.getElementById('socialProofText').textContent = SOCIAL_PROOF_MESSAGES[socialProofIndex % SOCIAL_PROOF_MESSAGES.length];
+        }
+
+        function showSocialProofBadge() {
+            let dismissed = false;
+            try { dismissed = localStorage.getItem('mcmSocialProofClosed') === '1'; } catch (e) {}
+            if (dismissed) return;
+            const badge = document.getElementById('socialProofBadge');
+            updateSocialProofText();
+            badge.classList.remove('hidden');
+            requestAnimationFrame(() => badge.classList.add('social-proof-in'));
+        }
+
+        function closeSocialProofBadge() {
+            const badge = document.getElementById('socialProofBadge');
+            badge.classList.remove('social-proof-in');
+            setTimeout(() => badge.classList.add('hidden'), 400);
+            try { localStorage.setItem('mcmSocialProofClosed', '1'); } catch (e) {}
+        }
+
+        setTimeout(showSocialProofBadge, 4000);
+        setInterval(() => {
+            socialProofIndex++;
+            const badge = document.getElementById('socialProofBadge');
+            if (!badge.classList.contains('hidden')) updateSocialProofText();
+        }, 12000);
     </script>
 
 </body>
