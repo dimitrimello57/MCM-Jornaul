@@ -298,6 +298,7 @@
                     <button onclick="filterCategory('imoveis', this)" class="category-btn text-charcoal-muted hover:text-gold transition-colors">Imóveis &amp; Short Stay</button>
                     <button onclick="filterCategory('protecao', this)" class="category-btn text-charcoal-muted hover:text-gold transition-colors">Seguro de Vida &amp; Saúde Executiva</button>
                     <button onclick="filterCategory('lifestyle', this)" class="category-btn text-charcoal-muted hover:text-gold transition-colors">Lifestyle &amp; Tênis de Luxo</button>
+                    <button onclick="filterCategory('mulheres', this)" class="category-btn text-charcoal-muted hover:text-gold transition-colors">MCM Mais Mulheres</button>
                     <button onclick="filterCategory('cases', this)" class="category-btn text-charcoal-muted hover:text-gold transition-colors">Cases de Sucesso MCM</button>
                 </div>
 
@@ -847,7 +848,7 @@
                 <span class="text-xs text-charcoal-subtle hidden md:block">Curadoria Exclusiva para Clientes MCM</span>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-stretch">
 
                 <!-- Main Article Tennis (Cols 7) -->
                 <a href="artigos/tenis-luxo-grand-slams-networking.html" class="md:col-span-7 group block space-y-4">
@@ -867,30 +868,58 @@
                 </a>
 
                 <!-- Secondary Lifestyle Items (Cols 5) -->
-                <div class="md:col-span-5 space-y-6">
+                <div class="md:col-span-5 flex flex-col justify-between gap-4">
 
                     <!-- Item Watch Collectibles -->
-                    <a href="artigos/alta-relojoaria-suica-ativo-vestivel.html" class="bg-sand-50 p-5 rounded-2xl border border-sand-200 hover:bg-white hover:shadow-soft-lg transition-all group flex space-x-4 items-center">
-                        <div class="w-24 h-24 rounded-xl overflow-hidden shrink-0 img-zoom-container">
+                    <a href="artigos/alta-relojoaria-suica-ativo-vestivel.html" class="bg-sand-50 p-4 rounded-2xl border border-sand-200 hover:bg-white hover:shadow-soft-lg transition-all group flex space-x-4 items-center">
+                        <div class="w-20 h-20 rounded-xl overflow-hidden shrink-0 img-zoom-container">
                             <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover" alt="Relógios de luxo" loading="lazy">
                         </div>
                         <div>
                             <span class="text-[9px] font-bold text-gold uppercase tracking-widest">ALTA HORLOGERIE</span>
-                            <h5 class="text-base font-bold text-charcoal group-hover:text-gold transition-colors leading-snug">
+                            <h5 class="text-sm font-bold text-charcoal group-hover:text-gold transition-colors leading-snug">
                                 Alta Relojoaria Suíça: Ativos vestíveis que superaram a inflação em 10 anos
                             </h5>
                             <span class="text-xs text-charcoal-subtle block mt-1">Alta Relojoaria como Ativo</span>
                         </div>
                     </a>
 
+                    <!-- Item Private Clubs -->
+                    <a href="artigos/clubes-privados-networking-sp-nova-york.html" class="bg-sand-50 p-4 rounded-2xl border border-sand-200 hover:bg-white hover:shadow-soft-lg transition-all group flex space-x-4 items-center">
+                        <div class="w-20 h-20 rounded-xl overflow-hidden shrink-0 img-zoom-container">
+                            <img src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover" alt="Clubes privados de alto padrão" loading="lazy">
+                        </div>
+                        <div>
+                            <span class="text-[9px] font-bold text-gold uppercase tracking-widest">CLUBES PRIVADOS &amp; NETWORKING</span>
+                            <h5 class="text-sm font-bold text-charcoal group-hover:text-gold transition-colors leading-snug">
+                                Membros VIP: o mercado de títulos em clubes exclusivos de SP e Nova York
+                            </h5>
+                            <span class="text-xs text-charcoal-subtle block mt-1">Acesso como Ativo</span>
+                        </div>
+                    </a>
+
+                    <!-- Item Golf & Business -->
+                    <a href="artigos/golfe-business-campos-fechados-aportes.html" class="bg-sand-50 p-4 rounded-2xl border border-sand-200 hover:bg-white hover:shadow-soft-lg transition-all group flex space-x-4 items-center">
+                        <div class="w-20 h-20 rounded-xl overflow-hidden shrink-0 img-zoom-container">
+                            <img src="https://images.unsplash.com/photo-1592919505780-303950717480?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover" alt="Golfe e negócios" loading="lazy">
+                        </div>
+                        <div>
+                            <span class="text-[9px] font-bold text-gold uppercase tracking-widest">GOLFE &amp; ALTA RENDA</span>
+                            <h5 class="text-sm font-bold text-charcoal group-hover:text-gold transition-colors leading-snug">
+                                Como os campos fechados viraram salas de reunião para grandes aportes
+                            </h5>
+                            <span class="text-xs text-charcoal-subtle block mt-1">Networking de Alto Nível</span>
+                        </div>
+                    </a>
+
                     <!-- Item Yachts & Aviation -->
-                    <a href="artigos/cotas-compartilhadas-iates-jatos.html" class="bg-sand-50 p-5 rounded-2xl border border-sand-200 hover:bg-white hover:shadow-soft-lg transition-all group flex space-x-4 items-center">
-                        <div class="w-24 h-24 rounded-xl overflow-hidden shrink-0 img-zoom-container">
+                    <a href="artigos/cotas-compartilhadas-iates-jatos.html" class="bg-sand-50 p-4 rounded-2xl border border-sand-200 hover:bg-white hover:shadow-soft-lg transition-all group flex space-x-4 items-center">
+                        <div class="w-20 h-20 rounded-xl overflow-hidden shrink-0 img-zoom-container">
                             <img src="https://images.unsplash.com/photo-1569263979104-865ab7cd8d13?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover" alt="Iates de Luxo" loading="lazy">
                         </div>
                         <div>
                             <span class="text-[9px] font-bold text-gold uppercase tracking-widest">AVIAÇÃO &amp; NÁUTICA</span>
-                            <h5 class="text-base font-bold text-charcoal group-hover:text-gold transition-colors leading-snug">
+                            <h5 class="text-sm font-bold text-charcoal group-hover:text-gold transition-colors leading-snug">
                                 Estruturação de Cotas de Propriedade Compartilhada para Iates e Jatos Executivos
                             </h5>
                             <span class="text-xs text-charcoal-subtle block mt-1">Eficiência de Uso</span>
@@ -899,6 +928,67 @@
 
                 </div>
 
+            </div>
+        </section>
+
+        <!-- SECTION 6B: MCM MAIS MULHERES -->
+        <section id="mcm-mulheres" data-cat-item data-cat="mulheres" class="bg-[#FDF2F4] rounded-3xl p-6 sm:p-8 md:p-12 border border-rose-100 space-y-8">
+            <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-2 border-b border-rose-200/70 pb-4">
+                <div>
+                    <span class="text-gold text-xs font-extrabold uppercase tracking-widest block mb-1">Negócios, Moda, Lifestyle &amp; Design</span>
+                    <h3 class="font-serif text-3xl md:text-4xl font-bold text-charcoal">MCM Mais Mulheres</h3>
+                </div>
+                <span class="text-xs text-charcoal-subtle">Curadoria para o universo feminino de alto padrão</span>
+            </div>
+
+            <!-- Feature -->
+            <a href="artigos/mulheres-lideranca-executivas-alto-padrao.html" class="group grid grid-cols-1 md:grid-cols-2 gap-6 items-center bg-white/70 rounded-3xl p-4 sm:p-6 border border-rose-100/80 hover:border-gold/40 transition-colors">
+                <div class="relative rounded-2xl overflow-hidden img-zoom-container aspect-[4/3]">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=900&auto=format&fit=crop" class="w-full h-full object-cover" alt="Executivas e investidoras no comando do mercado de luxo" loading="lazy">
+                    <span class="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-extrabold text-charcoal uppercase tracking-wider shadow-sm">Negócios &amp; Liderança</span>
+                </div>
+                <div>
+                    <span class="text-[10px] font-extrabold text-gold uppercase tracking-widest block mb-2">Destaque</span>
+                    <h4 class="text-xl md:text-2xl font-bold text-charcoal group-hover:text-gold transition-colors leading-snug mb-2">
+                        Elas no Comando: Como Executivas e Investidoras Estão Redesenhando o Topo do Mercado de Luxo
+                    </h4>
+                    <p class="text-charcoal-muted text-sm font-normal leading-relaxed">
+                        De conselhos de administração a family offices, mulheres ocupam posições de comando em ritmo crescente. Veja o que muda na forma de estruturar e proteger patrimônio.
+                    </p>
+                </div>
+            </a>
+
+            <!-- Secondary magazine grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                <a href="artigos/mulheres-moda-alfaiataria-executiva.html" class="group block">
+                    <div class="relative rounded-2xl overflow-hidden img-zoom-container shadow-sm aspect-[4/3] mb-3">
+                        <img src="https://images.unsplash.com/photo-1571513722275-4b41940f54b8?q=80&w=700&auto=format&fit=crop" class="w-full h-full object-cover" alt="Alfaiataria executiva feminina" loading="lazy">
+                        <span class="absolute top-3 left-3 bg-white/90 backdrop-blur-md px-2.5 py-1 rounded-full text-[9px] font-extrabold text-charcoal uppercase tracking-wider shadow-sm">Moda &amp; Alta Costura</span>
+                    </div>
+                    <h4 class="text-base font-bold text-charcoal group-hover:text-gold transition-colors leading-snug">
+                        Alfaiataria de Poder: o Guarda-Roupa Executivo Feminino como Estratégia de Marca Pessoal
+                    </h4>
+                </a>
+
+                <a href="artigos/mulheres-lifestyle-personalidades-alto-padrao.html" class="group block">
+                    <div class="relative rounded-2xl overflow-hidden img-zoom-container shadow-sm aspect-[4/3] mb-3">
+                        <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=700&auto=format&fit=crop" class="w-full h-full object-cover" alt="Lifestyle de alto padrão" loading="lazy">
+                        <span class="absolute top-3 left-3 bg-white/90 backdrop-blur-md px-2.5 py-1 rounded-full text-[9px] font-extrabold text-charcoal uppercase tracking-wider shadow-sm">Lifestyle &amp; Personalidades</span>
+                    </div>
+                    <h4 class="text-base font-bold text-charcoal group-hover:text-gold transition-colors leading-snug">
+                        O Novo Padrão de Sucesso: Como Mulheres de Alto Padrão Redefinem Lifestyle e Influência
+                    </h4>
+                </a>
+
+                <a href="artigos/mulheres-imoveis-design-interiores.html" class="group block">
+                    <div class="relative rounded-2xl overflow-hidden img-zoom-container shadow-sm aspect-[4/3] mb-3">
+                        <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=700&auto=format&fit=crop" class="w-full h-full object-cover" alt="Design de interiores de alto padrão" loading="lazy">
+                        <span class="absolute top-3 left-3 bg-white/90 backdrop-blur-md px-2.5 py-1 rounded-full text-[9px] font-extrabold text-charcoal uppercase tracking-wider shadow-sm">Imóveis &amp; Design</span>
+                    </div>
+                    <h4 class="text-base font-bold text-charcoal group-hover:text-gold transition-colors leading-snug">
+                        Mansões com Assinatura Feminina: Arquitetura e Design sob um Novo Olhar
+                    </h4>
+                </a>
             </div>
         </section>
 

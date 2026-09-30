@@ -25,11 +25,17 @@ const CAMILA = {
     authorImg: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=120&auto=format&fit=crop',
     interest: 'Diagnóstico Geral MCM'
 };
+const BEATRIZ = {
+    author: 'Beatriz Salles',
+    authorRole: 'Editora de MCM Mais Mulheres',
+    authorImg: 'https://images.unsplash.com/photo-1531123897727-8f129e1688ce?q=80&w=120&auto=format&fit=crop',
+    interest: 'Diagnóstico Geral MCM'
+};
 
 export const articles = [
     {
         slug: 'short-stay-alto-padrao-family-offices',
-        category: 'Imóveis de Luxo &amp; Short Stay',
+        category: 'Imóveis de Luxo & Short Stay',
         title: 'Short Stay High-Yield: Como o Airbnb de Altíssimo Padrão Virou a Tese Preferida de Family Offices em SP e Alphaville',
         description: 'Operações de short stay de alto padrão em São Paulo e Alphaville vêm rendendo entre 12% e 16% ao ano. Entenda por que family offices têm alocado capital nessa tese imobiliária.',
         image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1400&auto=format&fit=crop',
@@ -74,7 +80,7 @@ export const articles = [
     },
     {
         slug: 'protecao-sucessoria-offshore-seguro-vida',
-        category: 'Seguro de Vida &amp; Sucessão',
+        category: 'Seguro de Vida & Sucessão',
         title: 'Proteção Sucessória Offshore: Como Garantir Liquidez Imediata para Herdeiros sem Inventário',
         description: 'Apólices de seguro de vida internacionais entregam indenização a herdeiros fora do inventário, em cerca de 30 dias. Entenda como isso protege patrimônio familiar de liquidações forçadas.',
         image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1400&auto=format&fit=crop',
@@ -116,7 +122,7 @@ export const articles = [
     },
     {
         slug: 'casas-alphaville-tambore-locacao-executiva',
-        category: 'Alphaville &amp; Tamboré',
+        category: 'Alphaville & Tamboré',
         title: 'Casas de Condomínio Fechado Preparadas para Locação Executiva e Eventos Corporativos',
         description: 'Casas em condomínios fechados de Alphaville e Tamboré atingem retorno estimado de 15,2% ao ano com locação executiva. Veja como a operação é estruturada ponta a ponta.',
         image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1400&auto=format&fit=crop',
@@ -136,7 +142,7 @@ export const articles = [
     },
     {
         slug: 'studios-luxo-itaim-bibi-jardins',
-        category: 'Itaim Bibi &amp; Jardins',
+        category: 'Itaim Bibi & Jardins',
         title: 'Studios e Compactos de Luxo: A Receita Certa para Ocupação Máxima em São Paulo',
         description: 'Studios bem localizados em Itaim Bibi e Jardins, com design autoral e automação, atingem até 82% de ocupação. Entenda a operação por trás desse número.',
         image: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=1400&auto=format&fit=crop',
@@ -156,7 +162,7 @@ export const articles = [
     },
     {
         slug: 'villas-luxo-trancoso-buzios',
-        category: 'Destinos Internacionais &amp; Praia',
+        category: 'Destinos Internacionais & Praia',
         title: 'Villas de Alto Luxo no Litoral: A Tendência dos "Ultra-Rich Vacation Rentals"',
         description: 'Com diárias entre R$ 8 mil e R$ 25 mil, villas de alto padrão em Trancoso e Búzios deixaram de ser ativos de lazer para se tornar máquinas geradoras de dividendos.',
         image: 'https://images.unsplash.com/photo-1613977257363-707ba9348227?q=80&w=1400&auto=format&fit=crop',
@@ -176,7 +182,7 @@ export const articles = [
     },
     {
         slug: 'seguro-vida-high-net-worth-itcmd',
-        category: 'Planejamento Sucessório &amp; Seguro de Vida',
+        category: 'Planejamento Sucessório & Seguro de Vida',
         title: 'Seguro de Vida High-Net-Worth: A Ferramenta Ideal para Garantir Liquidez e Cobrir ITCMD sem Vender Patrimônio',
         description: 'A morte imprevista de um fundador pode congelar bens da empresa e da família. Veja como apólices de vida internacionais evitam a liquidação forçada de patrimônio.',
         image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1400&auto=format&fit=crop',
@@ -196,7 +202,7 @@ export const articles = [
     },
     {
         slug: 'saude-executiva-c-level-corporativa',
-        category: 'Saúde Executiva &amp; Corporativa',
+        category: 'Saúde Executiva & Corporativa',
         title: 'Gestão de Seguro Saúde para Grupos C-Level: Reembolso Ilimitado e Hospitais de Ponta',
         description: 'Consultoria personalizada para diretores e grandes empresários dá acesso a Einstein, Sírio-Libanês e Mayo Clinic sob condições exclusivas de estipulação corporativa.',
         image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=1400&auto=format&fit=crop',
@@ -216,7 +222,7 @@ export const articles = [
     },
     {
         slug: 'tenis-luxo-grand-slams-networking',
-        category: 'Esporte de Elite &amp; Networking',
+        category: 'Esporte de Elite & Networking',
         title: 'Tênis de Luxo e os Grandes Torneios: Por Que as Quadras Viraram o Novo Hub dos Negócios Bilionários',
         description: 'De Roland Garros aos clubes fechados de São Paulo, o tênis se consolidou como o esporte preferido de grandes tomadores de decisão. Entenda o fenômeno.',
         image: 'https://images.unsplash.com/photo-1595435934249-5df7ed86e1c0?q=80&w=1400&auto=format&fit=crop',
@@ -224,7 +230,7 @@ export const articles = [
         dateIso: '2026-05-30',
         dateDisplay: '30 de maio de 2026',
         readTime: '4 min',
-        related: ['alta-relojoaria-suica-ativo-vestivel', 'cotas-compartilhadas-iates-jatos', 'villas-luxo-trancoso-buzios'],
+        related: ['alta-relojoaria-suica-ativo-vestivel', 'clubes-privados-networking-sp-nova-york', 'golfe-business-campos-fechados-aportes'],
         body: [
             '<p>De Roland Garros aos clubes fechados de São Paulo e Nova York, o tênis se consolidou como o esporte preferido de grandes tomadores de decisão — unindo disciplina, networking e exclusividade.</p>',
             '<h2>Por que o tênis, especificamente</h2>',
@@ -254,8 +260,50 @@ export const articles = [
         ]
     },
     {
+        slug: 'clubes-privados-networking-sp-nova-york',
+        category: 'Clubes Privados & Networking',
+        title: 'Membros VIP em Clubes Privados: O Mercado de Títulos em Clubes Exclusivos de São Paulo e Nova York',
+        description: 'Títulos de clubes privados em São Paulo e Nova York viraram ativo de acesso disputado. Entenda como funciona esse mercado e por que a fila de espera é parte do valor.',
+        image: 'https://images.unsplash.com/photo-1470337458703-46ad1756a187?q=80&w=1400&auto=format&fit=crop',
+        ...CAMILA,
+        dateIso: '2026-09-15',
+        dateDisplay: '15 de setembro de 2026',
+        readTime: '4 min',
+        related: ['tenis-luxo-grand-slams-networking', 'golfe-business-campos-fechados-aportes', 'alta-relojoaria-suica-ativo-vestivel'],
+        body: [
+            '<p>Diferente de um clube de academia ou de lazer comum, um título em um clube privado de alto padrão em São Paulo ou Nova York funciona como um ativo de acesso: o valor não está só na estrutura física, mas na curadoria de quem está do outro lado da mesa.</p>',
+            '<h2>Por que a fila de espera é parte do produto</h2>',
+            '<p>Os clubes mais disputados operam com número de títulos deliberadamente limitado e processos de indicação por membros já existentes — o que cria filas de espera de anos em algumas instituições tradicionais. Essa escassez controlada não é um defeito operacional, é a própria proposta de valor: quanto mais difícil o acesso, mais previsível é a qualidade da rede de contatos dentro das portas.</p>',
+            '<p>Isso também sustenta um mercado secundário informal de títulos, com transferências entre membros que, em alguns clubes tradicionais, chegam a valer múltiplos do preço de tabela original — um comportamento de precificação mais próximo de um ativo colecionável do que de uma assinatura de serviço.</p>',
+            '<h2>O que se negocia, na prática</h2>',
+            '<p>Reuniões de negócio em ambientes informais, apresentações a investidores fora do radar público e conexões familiares que atravessam gerações são os verdadeiros produtos vendidos por um título de clube — a estrutura física (salão, biblioteca, restaurante) é só o cenário onde isso acontece.</p>',
+            '<p>Para executivos e empresários que já têm uma rede de assessoria patrimonial estruturada, entrar nesse tipo de círculo costuma ser menos sobre status e mais sobre eficiência: reduzir a distância entre uma boa ideia de negócio e a pessoa certa para validá-la ou financiá-la.</p>'
+        ]
+    },
+    {
+        slug: 'golfe-business-campos-fechados-aportes',
+        category: 'Golfe & Alta Renda',
+        title: 'Golfe & Business: Como os Campos Fechados Viraram Salas de Reunião para Grandes Aportes',
+        description: 'Quatro horas de jogo, sem celular tocando e sem pressa: veja por que o golfe virou o ambiente preferido para negociações de alto valor entre investidores e empresários.',
+        image: 'https://images.unsplash.com/photo-1592919505780-303950717480?q=80&w=1400&auto=format&fit=crop',
+        ...CAMILA,
+        dateIso: '2026-09-22',
+        dateDisplay: '22 de setembro de 2026',
+        readTime: '4 min',
+        related: ['clubes-privados-networking-sp-nova-york', 'tenis-luxo-grand-slams-networking', 'cotas-compartilhadas-iates-jatos'],
+        body: [
+            '<p>Um jogo de golfe em um campo fechado dura, em média, quatro horas — tempo suficiente para conhecer de verdade o estilo de decisão de um potencial sócio ou investidor, algo que uma reunião de 30 minutos dificilmente revela.</p>',
+            '<h2>Por que o golfe funciona como ambiente de negócio</h2>',
+            '<p>O formato do jogo impõe um ritmo que nenhuma sala de reunião reproduz: períodos de silêncio entre tacadas, deslocamento a pé entre buracos e ausência natural de interrupções por celular. Esses intervalos acabam sendo o momento em que boa parte das conversas de negócio de fato acontece — não durante a tacada, mas nos minutos de caminhada logo depois dela.</p>',
+            '<p>Há também um efeito de exposição prolongada: jogar 18 buracos ao lado de alguém expõe paciência, forma de lidar com frustração e disciplina — sinais comportamentais que investidores experientes leem com tanta atenção quanto uma planilha financeira antes de decidir um aporte relevante.</p>',
+            '<h2>O acesso como parte da estratégia</h2>',
+            '<p>Campos fechados de alto padrão funcionam com a mesma lógica de escassez dos clubes privados urbanos: número limitado de sócios, convite como principal via de entrada e uma comunidade que se repete em torneios e eventos beneficentes ao longo do ano.</p>',
+            '<p>Para famílias empresárias e investidores que já contam com assessoria patrimonial estruturada, participar desse circuito costuma ser tratado como parte da estratégia de relacionamento de longo prazo — tão deliberado quanto qualquer decisão de alocação de capital.</p>'
+        ]
+    },
+    {
         slug: 'cotas-compartilhadas-iates-jatos',
-        category: 'Aviação &amp; Náutica',
+        category: 'Aviação & Náutica',
         title: 'Estruturação de Cotas de Propriedade Compartilhada para Iates e Jatos Executivos',
         description: 'A propriedade compartilhada dá acesso a iates e jatos executivos por uma fração do custo total, sem os custos operacionais de manutenção exclusiva. Entenda como funciona.',
         image: 'https://images.unsplash.com/photo-1569263979104-865ab7cd8d13?q=80&w=1400&auto=format&fit=crop',
@@ -263,7 +311,7 @@ export const articles = [
         dateIso: '2026-06-28',
         dateDisplay: '28 de junho de 2026',
         readTime: '4 min',
-        related: ['villas-luxo-trancoso-buzios', 'tenis-luxo-grand-slams-networking', 'alta-relojoaria-suica-ativo-vestivel'],
+        related: ['golfe-business-campos-fechados-aportes', 'tenis-luxo-grand-slams-networking', 'alta-relojoaria-suica-ativo-vestivel'],
         body: [
             '<p>A propriedade compartilhada de iates e jatos executivos permite acesso a ativos de altíssimo padrão com uma fração do custo total e sem os custos operacionais de manutenção exclusiva.</p>',
             '<h2>A conta que a propriedade integral esconde</h2>',
@@ -271,6 +319,93 @@ export const articles = [
             '<p>A propriedade compartilhada resolve exatamente essa desproporção: o proprietário paga proporcionalmente ao uso e divide os custos fixos com os demais cotistas, mantendo acesso ao mesmo padrão de ativo sem carregar sozinho o peso da ociosidade.</p>',
             '<p>A MCM Capital estrutura essas cotas com contratos claros de uso, manutenção e revenda, otimizando a eficiência de uso de cada ativo — o que inclui calendário de reserva justo entre cotistas e regras definidas para a saída de um sócio da cota.</p>',
             '<p>O ponto mais importante da estruturação, e o que costuma ser negligenciado em acordos informais, é a cláusula de saída: definir com clareza como e por quanto um cotista pode vender sua fração evita disputas que, na prática, são o maior risco desse tipo de investimento.</p>'
+        ]
+    },
+    {
+        slug: 'mulheres-lideranca-executivas-alto-padrao',
+        category: 'Negócios & Liderança',
+        title: 'Elas no Comando: Como Executivas e Investidoras Estão Redesenhando o Topo do Mercado de Luxo',
+        description: 'De conselhos de administração a family offices, mulheres ocupam posições de comando em ritmo crescente. Veja o que muda na forma de estruturar e proteger patrimônio.',
+        image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1400&auto=format&fit=crop',
+        ...BEATRIZ,
+        dateIso: '2026-09-08',
+        dateDisplay: '8 de setembro de 2026',
+        readTime: '5 min',
+        related: ['mulheres-moda-alfaiataria-executiva', 'mulheres-imoveis-design-interiores', 'mulheres-lifestyle-personalidades-alto-padrao'],
+        body: [
+            '<p>A presença feminina em posições de comando — conselhos de administração, diretorias executivas, family offices e fundos de investimento — cresce em ritmo constante no Brasil, ainda que a partir de uma base historicamente baixa. Mais do que uma pauta de representatividade, essa mudança está reconfigurando como o patrimônio é planejado, protegido e transmitido entre gerações.</p>',
+            '<h2>Uma forma diferente de estruturar decisões</h2>',
+            '<p>Levantamentos internacionais de gestoras de patrimônio apontam um padrão recorrente: mulheres em posição de decisão tendem a dar mais peso a horizontes de longo prazo e a planejamento sucessório explícito, em vez de concentrar a estratégia apenas em retorno de curto prazo. Isso não é uma regra universal, mas explica por que family offices liderados por mulheres frequentemente chegam à assessoria patrimonial já com perguntas sobre sucessão, e não apenas sobre rentabilidade.</p>',
+            '<p>Essa diferença de ênfase muda a conversa com o assessor: em vez de começar pela pergunta "onde alocar", muitas vezes começa por "o que acontece com isso daqui a 20 anos" — uma pergunta que exige estruturação jurídica e de seguros tanto quanto estratégia de investimento.</p>',
+            '<h2>O que isso muda na prática</h2>',
+            '<p>Para uma executiva ou investidora que está construindo patrimônio próprio — não herdado —, os temas que mais aparecem nas conversas de planejamento incluem proteção do patrimônio construído individualmente em caso de eventos pessoais, estruturação de holding familiar quando há mais de um gerador de renda na família, e liquidez para manter o padrão de vida e as obrigações da empresa em cenários de afastamento temporário.</p>',
+            '<p>Nenhum desses temas é exclusivo de um gênero, mas o crescimento do número de mulheres à frente de empresas e portfólios relevantes está, na prática, trazendo essas perguntas para mais mesas de assessoria do que há uma década.</p>',
+            '<p>A MCM Journal acompanha esse movimento de perto: entender quem está tomando as decisões patrimoniais hoje é parte de entender para onde o mercado de alto padrão está indo.</p>'
+        ]
+    },
+    {
+        slug: 'mulheres-moda-alfaiataria-executiva',
+        category: 'Moda & Alta Costura',
+        title: 'Alfaiataria de Poder: Como o Guarda-Roupa Executivo Feminino Virou Estratégia de Marca Pessoal',
+        description: 'Blazers estruturados, alfaiataria sob medida e peças de assinatura deixaram de ser só estilo e viraram ferramenta de posicionamento para executivas e empresárias.',
+        image: 'https://images.unsplash.com/photo-1571513722275-4b41940f54b8?q=80&w=1400&auto=format&fit=crop',
+        ...BEATRIZ,
+        dateIso: '2026-09-01',
+        dateDisplay: '1 de setembro de 2026',
+        readTime: '4 min',
+        related: ['mulheres-lideranca-executivas-alto-padrao', 'mulheres-lifestyle-personalidades-alto-padrao', 'alta-relojoaria-suica-ativo-vestivel'],
+        body: [
+            '<p>Nas últimas temporadas, a alfaiataria estruturada consolidou-se como uniforme de poder entre executivas, empresárias e investidoras — e deixou de ser apenas uma escolha estética para virar parte deliberada de estratégia de marca pessoal.</p>',
+            '<h2>Por que a alfaiataria comunica autoridade</h2>',
+            '<p>Um blazer bem cortado, sob medida, resolve um problema de comunicação que roupas prontas raramente resolvem: transmitir precisão e controle em segundos, antes mesmo de qualquer palavra ser dita. Em ambientes de negociação e apresentação a investidores, essa é uma vantagem que consultoras de imagem executiva tratam com a mesma seriedade que um roteiro de pitch.</p>',
+            '<p>A escolha por peças de assinatura — cores, cortes ou grifes que se repetem e se tornam reconhecíveis — também cumpre função estratégica: cria consistência visual em aparições públicas, entrevistas e eventos, reforçando uma identidade de marca pessoal que fica na memória de investidores, parceiros e imprensa.</p>',
+            '<h2>Do guarda-roupa ao investimento</h2>',
+            '<p>Esse movimento tem efeito colateral direto no consumo de moda de luxo: cresce a demanda por atelięs de alfaiataria sob medida e por peças de manufaturas que garantem exclusividade — uma resposta direta ao desejo de não repetir o look de outra executiva na mesma sala de reunião.</p>',
+            '<p>Peças de alta costura e joalheria de assinatura, quando bem escolhidas, também acompanham a mesma lógica de bens colecionáveis discutida em outras editorias do MCM Journal: raridade controlada e demanda constante sustentam valor de revenda em um mercado secundário cada vez mais organizado.</p>'
+        ]
+    },
+    {
+        slug: 'mulheres-lifestyle-personalidades-alto-padrao',
+        category: 'Lifestyle & Personalidades',
+        title: 'O Novo Padrão de Sucesso: Como Mulheres de Alto Padrão Estão Redefinindo Lifestyle e Influência',
+        description: 'Menos ostentação, mais curadoria: veja como o lifestyle de alto padrão feminino vem sendo reformulado por uma geração que valoriza experiência e discrição.',
+        image: 'https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=1400&auto=format&fit=crop',
+        ...BEATRIZ,
+        dateIso: '2026-08-25',
+        dateDisplay: '25 de agosto de 2026',
+        readTime: '4 min',
+        related: ['mulheres-moda-alfaiataria-executiva', 'mulheres-lideranca-executivas-alto-padrao', 'mulheres-imoveis-design-interiores'],
+        body: [
+            '<p>O lifestyle de alto padrão associado a mulheres de destaque no Brasil vem passando por uma reformulação silenciosa: menos ostentação explícita, mais curadoria discreta — viagens bem escolhidas em vez de exibidas, experiências exclusivas em vez de aquisições visíveis.</p>',
+            '<h2>De ostentação a curadoria</h2>',
+            '<p>Essa mudança de tom acompanha uma geração de empresárias, investidoras e criadoras de conteúdo que tratam influência como ativo de longo prazo, não como exposição pontual. O consumo de luxo continua alto, mas a forma de comunicá-lo mudou: clubes fechados, experiências gastronômicas privadas e viagens a destinos menos óbvios substituem a lógica antiga de mostrar tudo publicamente.</p>',
+            '<p>Isso também aparece no consumo de serviços: personal shoppers que compram sem publicizar a compra, consultorias de viagem que desenham roteiros sob medida em vez de pacotes fechados, e uma valorização crescente de experiências que não são facilmente replicáveis por qualquer pessoa com dinheiro — o verdadeiro luxo, nesse novo padrão, é o acesso, não o objeto.</p>',
+            '<h2>O que isso sinaliza para quem observa o mercado</h2>',
+            '<p>Para marcas e prestadores de serviço de alto padrão, o recado é direto: a mulher de alto padrão de hoje reage melhor a discrição, personalização e exclusividade real do que a campanhas que dependem de exposição e comparação. Essa é uma leitura que vale tanto para moda e viagem quanto para assessoria patrimonial — ninguém quer sentir que está recebendo um produto de prateleira.</p>'
+        ]
+    },
+    {
+        slug: 'mulheres-imoveis-design-interiores',
+        category: 'Imóveis & Design',
+        title: 'Mansões com Assinatura Feminina: Como Arquitetas e Designers Estão Redesenhando o Mercado Imobiliário de Luxo',
+        description: 'Arquitetas e designers de interiores lideram um novo olhar sobre residências de alto padrão, priorizando funcionalidade, bem-estar e identidade sobre ostentação pura.',
+        image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=1400&auto=format&fit=crop',
+        author: 'Beatriz Salles',
+        authorRole: 'Editora de MCM Mais Mulheres',
+        authorImg: 'https://images.unsplash.com/photo-1531123897727-8f129e1688ce?q=80&w=120&auto=format&fit=crop',
+        interest: 'Assessoria Imobiliária MCM',
+        dateIso: '2026-08-12',
+        dateDisplay: '12 de agosto de 2026',
+        readTime: '5 min',
+        related: ['mulheres-lideranca-executivas-alto-padrao', 'mulheres-lifestyle-personalidades-alto-padrao', 'studios-luxo-itaim-bibi-jardins'],
+        body: [
+            '<p>Um número crescente de escritórios de arquitetura e design de interiores liderados por mulheres vem assinando projetos de residências de altíssimo padrão no Brasil — e trazendo consigo um olhar que prioriza funcionalidade e bem-estar tanto quanto estética.</p>',
+            '<h2>Menos fachada, mais como se vive</h2>',
+            '<p>O traço comum entre esses projetos não é um estilo visual único, mas uma pergunta recorrente no processo de projeto: como a família realmente vive naquele espaço, dia a dia — não apenas como a casa aparenta em uma fotografia. Isso se traduz em cozinhas pensadas para uso real e não só para eventos, home offices integrados ao projeto original em vez de improvisados depois, e áreas de bem-estar (spa, home gym, jardins terapêuticos) tratadas como parte estrutural do projeto, não como adicional de luxo.</p>',
+            '<p>Iluminação natural, circulação de ar e materiais atóxicos também ganharam peso técnico no briefing de clientes de alto padrão — uma resposta direta a uma geração que associa qualidade de vida diretamente ao ambiente construído, e não só à localização ou à metragem.</p>',
+            '<h2>O reflexo no valor do imóvel</h2>',
+            '<p>Esse cuidado tem efeito direto na precificação: imóveis com projeto autoral bem documentado — plantas, memorial descritivo, especificação de materiais — tendem a manter valorização mais consistente no mercado secundário do que imóveis de acabamento genérico, mesmo em bairros equivalentes, porque o projeto em si vira parte do ativo, não só o terreno e a construção.</p>',
+            '<p>Para investidores que já operam short stay de alto padrão, como discutido em outras reportagens do MCM Journal, esse mesmo princípio de projeto pensado para uso real — não só para fotografia — é o que sustenta ocupação e diária acima da média ao longo do tempo.</p>'
         ]
     }
 ];
